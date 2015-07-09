@@ -1,0 +1,8 @@
+<div class="row text-center" id="quota_catalog_title">
+    <div class="col rect_tab" ng-repeat="catalog in catalogs"
+         ng-class="{rect_tab_no_active:$index!=catalog_selected,rect_tab_active:$index==catalog_selected,rect_tab_left:$index==0,rect_tab_right:$index==catalogs.length-1}"
+         ng-click="selectCatalog($index)">
+        {{catalog.catalogName}}
+    </div>
+</div>
+

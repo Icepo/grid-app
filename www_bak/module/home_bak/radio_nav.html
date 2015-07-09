@@ -1,0 +1,9 @@
+<div id="radio_nav">
+    <div class="row">
+        <div ng-repeat="menu in radioNav" class="col" ui-sref="{{menu.menuUrl}}">
+            <img ng-src="{{menu.imgUrl}}">
+            <br>
+            {{menu.menuName}}
+        </div>
+    </div>
+</div>

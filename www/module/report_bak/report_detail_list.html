@@ -1,0 +1,15 @@
+<table class="text-center" id="report_table">
+    <tr id="report_table_title" class="border_bottom fixedHeader">
+        <td class="fixedCell" ng-repeat="title in data.titles">&nbsp;{{title.name}}&nbsp;</td>
+    </tr>
+    <tr ng-repeat="item in data.items">
+        <td class="td fixedDataCol">{{item.prop_1}}</td>
+        <td class="td fixedDataCol">{{item.prop_2}}</td>
+        <td class="td fixedDataCol">{{item.prop_3}}</td>
+        <td class="td">{{item.prop_4}}</td>
+        <td class="td">{{item.prop_5}}</td>
+        <td class="td">{{item.prop_6}}</td>
+    </tr>
+</table>
+<div id="mask" ng-show="optionShow" ng-click="changeDisplay()"></div>
+

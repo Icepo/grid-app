@@ -1,0 +1,65 @@
+/**
+ * Created by liuzhangjun on 2015-5-25.
+ */
+app.config(['$stateProvider',function($stateProvider){
+    $stateProvider
+        .state('continued',{
+            url:'/continued',
+            views:{
+                'app':{
+                    templateUrl:'module/business/continued_wholesale/continued_wholesale.html',
+                    controller:'continuedController'
+                }
+            }
+        })
+        .state('continued.list',{
+            url:'/list',
+            views:{
+                'continued_wholesale_top':{
+                    templateUrl:'module/business/continued_wholesale/continued_wholesale_top.html'
+                },
+                'continued_wholesale_bottom':{
+                    template:'<div ui-view="continued_wholesale_bottom_list"></div>'
+                }
+            }
+        })
+        .state('continued.list.show',{
+            url:'/show',
+            views:{
+                'continued_wholesale_top_header':{
+                    templateUrl:'module/business/continued_wholesale/continued_wholesale_top_header.html'
+                },
+                'continued_wholesale_top_monthpicker':{
+                    templateUrl:'module/business/continued_wholesale/continued_wholesale_top_monthpicker.html'
+                },
+                'continued_wholesale_bottom_list':{
+                    templateUrl:'module/business/continued_wholesale/continued_wholesale_list_grid.html'
+                }
+            }
+        })
+        .state('continued.list.user',{
+            url:'/user',
+            views:{
+                'continued_wholesale_top_header':{
+                    templateUrl:'module/business/continued_wholesale/continued_wholesale_top_header.html'
+                },
+                'continued_wholesale_top_monthpicker':{
+                    templateUrl:'module/business/continued_wholesale/continued_wholesale_top_monthpicker.html'
+                },
+                'continued_wholesale_bottom_list':{
+                    templateUrl:'module/business/continued_wholesale/continued_wholesale_list_user.html'
+                }
+            }
+        })
+        .state('continued.list.userinfo',{
+            url:'userInfo',
+            views:{
+                'continued_wholesale_top_header':{
+                    templateUrl:'module/business/continued_wholesale/continued_wholesale_top_header.html'
+                },
+                'continued_wholesale_bottom_list':{
+                    templateUrl:'module/business/continued_wholesale/continued_wholesale_user_info.html'
+                }
+            }
+        })
+}]);

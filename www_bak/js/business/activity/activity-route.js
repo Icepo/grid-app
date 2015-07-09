@@ -1,0 +1,37 @@
+/**
+ * Created by liuzhangjun on 2015-7-3.
+ */
+app.config(['$stateProvider',function($stateProvider){
+    $stateProvider
+        .state('activity',{
+            url:'/activity',
+            views:{
+                'app':{
+                    templateUrl:'activity.html',
+                    controller:'activityController'
+                }
+            }
+        })
+        .state('activity.show',{
+            url:'/show',
+            views:{
+                'activity_top':{
+                    templateUrl:'activity_header.html'
+                },
+                'activity_content':{
+                    templateUrl:'activity_body.html'
+                }
+            }
+        })
+        .state('activity.detail',{
+            url:'/detail',
+            views:{
+                'activity_top':{
+                    templateUrl:'activity_header.html'
+                },
+                'activity_content':{
+                    templateUrl:'activity_detail.html'
+                }
+            }
+        })
+}]);

@@ -1,0 +1,24 @@
+<div class="bar bar-footer bar-unicom no_padding fixed">
+    <div class="row text-center no_padding" ng-controller="footerController">
+        <div id="home" class="col no_padding" ng-click="selectItem('home')">
+            <img src="img/footer_home.png" class="footer_icon">
+            <br>
+            首页&nbsp;
+        </div>
+        <div id="quota" class="col no_padding" ng-click="selectItem('quota')">
+            <img src="img/footer_quota.png" class="footer_icon">
+            <br>
+            指标&nbsp;
+        </div>
+        <div id="report" class="col no_padding" ng-click="selectItem('report')">
+            <img src="img/footer_report.png" class="footer_icon">
+            <br>
+            报表&nbsp;
+        </div>
+        <div id="more" class="col no_padding" ui-sref="more">
+            <img src="img/footer_more.png" class="footer_icon">
+            <br>
+            更多&nbsp;
+        </div>
+    </div>
+</div>

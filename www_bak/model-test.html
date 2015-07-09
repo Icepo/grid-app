@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>test</title>
+    <script src="js/ionic/angular/angular.js"></script>
+    <script src="js/model-test.js"></script>
+</head>
+<body ng-app="app">
+<div ng-controller="loginController">
+    <input type="text" ng-model="user.username" placeholder="请输入用户名">
+    <input type="text" ng-model="user.password" placeholder="请输入密码">
+    <button ng-click="doLogin()">登录</button>
+</div>
+<my-directive attr_1="123" attr_2="456"></my-directive>
+<div ng-controller="loginController">{{user}}</div>
+<div ng-switch on='user.username' ng-controller="loginController">
+    <div>text</div>
+    <div ng-switch-when="admin">show {{user.username}}</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<div>
+    <script type="text/ng-template" id="quota.html">
+        <div ui-view="quota_catalog"></div>
+        <div ui-view="quota_menus"></div>
+        <br><br><br>
+    </script>
+    <script type="text/ng-template" id="quota_catalog.html">
+        <div class="row text-center" id="quota_catalog_title">
+            <div class="col rect_tab" ng-repeat="catalog in catalogs"
+                 ng-class="{rect_tab_no_active:$index!=catalog_selected,rect_tab_active:$index==catalog_selected,rect_tab_left:$index==0,rect_tab_right:$index==catalogs.length-1}"
+                 ng-click="selectCatalog($index)">
+                {{catalog.catalogName}}
+            </div>
+        </div>
+    </script>
+    <script type="text/ng-template" id="quota_columnchart.html">
+        <div ng-controller="columnchartController" ng-init="eleOnload()" style="position: relative;top:132px;">
+            <canvas id="canvas"></canvas>
+        </div>
+    </script>
+    <script type="text/ng-template" id="quota_detail.html">
+        <div id="quota_detail">
+            <div ui-view="quota_detail_top" class="detail_top" class="opcity_change"></div>
+            <div ui-view="quota_detail_bottom"></div>
+        </div>
+    </script>
+    <script type="text/ng-template" id="quota_detail_top.html">
+        <div ui-view="quota_detail_top_header"></div>
+        <div ui-view="quota_detail_top_nav"></div>
+        <div ui-view="quota_detail_top_datepicker"></div>
+    </script>
+    <script type="text/ng-template" id="quota_detail_top_datepicker.html">
+        <div class="text-center sub_title sub_title_under_line">
+            <img class="sub_title_left" ng-src="img/arrow_left.png"><span id="datepicker_font">2015年3月21日</span><img class="sub_title_right" ng-src="img/arrow_right.png">
+        </div>
+    </script>
+    <script type="text/ng-template" id="quota_detail_top_header.html">
+        <div class="sub_title text-center">
+            <img class="img_left" ng-src="img/title_left.png" ng-click="back()">
+            <span id="title_font">{{quotaTitle}}</span>
+            <img class="img_right" ng-src="img/title_home.png" ng-click="home()">
+        </div>
+    </script>
+    <script type="text/ng-template" id="quota_detail_top_nav.html">
+        <div class="row text-center" id="quota_detail_nav">
+            <div class="col rect_nav" ng-class="{rect_nav_active:selectedNav==0,rect_nav_no_active:selectedNav==1}" id="rect_nav_left" ng-click="selectNav(0)">{{navs[0]}}</div>
+            <div class="col rect_nav" ng-class="{rect_nav_active:selectedNav==1,rect_nav_no_active:selectedNav==0}" id="rect_nav_right" ng-click="selectNav(1)">{{navs[1]}}</div>
+        </div>
+    </script>
+    <script type="text/ng-template" id="quota_linechart.html">
+        <div ng-controller="lineChartController" ng-init="eleOnload()" style="position:relative;top:88px;">
+            <canvas id="canvas"></canvas>
+            <div id="line_chart_title" class="text-center">{{bottomTitle}}</div>
+        </div>
+    </script>
+    <script type="text/ng-template" id="quota_list.html">
+        <div style="position: relative;top:132px;">
+            <div id="list_title" class="row no_padding text-center">
+                <div class="col-30">营销单元</div>
+                <div class="col-20" ng-click="orderData('value')">今日值<img ng-src={{imgUrl.value}}></div>
+                <div class="col-20" ng-click="orderData('last')">昨日值<img ng-src={{imgUrl.last}}></div>
+                <div class="col-30" ng-click="orderData('sum')">当月累计值<img ng-src={{imgUrl.sum}}></div>
+            </div>
+            <div  id="data_list_detail">
+                <div ng-repeat="d in data.data" class="row text-center">
+                    <div class="col-30">{{d.text}}</div>
+                    <div class="col-20">{{d.value}}</div>
+                    <div class="col-20">{{d.last}}</div>
+                    <div class="col-24">{{d.sum}}</div>
+                    <div class="col-6"><img ng-src="img/arrow_right.png"></div>
+                </div>
+            </div>
+        </div>
+    </script>
+    <script type="text/ng-template" id="quota_menus.html">
+        <div class="row no_padding" ng-repeat="menuArray in menuList">
+            <div class="col no_padding rect_list" ng-repeat="menu in menuArray" ng-click="quotaDetail(menu)" ng-class="{rect_list_left:$index%2==0,rect_list_right:$index%2==1}" style="background-color: {{menu.color}}">
+                <span class="rect_list_icon"><img ng-src="img/quota_detail_icon.png"></span>
+                <span class="rect_list_word">{{menu.menuName}}</span>
+            </div>
+            <div ng-if="menuArray[1]==undefined" class="col no_padding rect_list rect_list_right rect_list_end">
+                <span class="rect_list_icon"><img ng-src="img/quota_more_icon.png"></span>
+                <span class="rect_list_word">敬请期待{{menuArray[menuArray.length-1][1]}}</span>
+            </div>
+        </div>
+        <div class="row no_padding" ng-if="menuList[menuList.length-1][1]!=undefined">
+            <div class="col no_padding rect_list rect_list_left rect_list_end">
+                <span class="rect_list_icon"><img ng-src="img/quota_more_icon.png"></span>
+                <span class="rect_list_word">敬请期待</span>
+            </div>
+            <div class="col"></div>
+        </div>
+    </script>
+</div>

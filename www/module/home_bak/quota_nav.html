@@ -1,0 +1,7 @@
+<div id="quota_nav">
+    <div class="row hr_style" ng-repeat="menuArray in quotaNav">
+        <div class="col" ng-repeat="menu in menuArray"  ng-click="quotaDetail(menu)">
+            <img ng-src="{{menu.imgUrl}}" class="quota_nav_icon">&nbsp;{{menu.menuName}}
+        </div>
+    </div>
+</div>
