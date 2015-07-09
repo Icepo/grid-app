@@ -2328,7 +2328,7 @@ function($ionicLoadingConfig, $ionicBody, $ionicTemplateLoader, $ionicBackdrop, 
  *
  * Related: {@link ionic.controller:ionicModal ionicModal controller}.
  *
- * The Modal is a content pane that can go over the user's home view
+ * The Modal is a content pane that can go over the user's home_bak view
  * temporarily.  Usually used for making a choice or editing an item.
  *
  * Put the content of the modal inside of an `<ion-modal-view>` element.
@@ -2338,7 +2338,7 @@ function($ionicLoadingConfig, $ionicBody, $ionicTemplateLoader, $ionicBackdrop, 
  * scope, passing in itself as an event argument. Both the modal.removed and modal.hidden events are
  * called when the modal is removed.
  *
- * - This example assumes your modal is in your home index file or another template file. If it is in its own
+ * - This example assumes your modal is in your home_bak index file or another template file. If it is in its own
  * template file, remove the script tags and call it by file name.
  *
  * @usage
@@ -4213,12 +4213,12 @@ IonicModule
  *         prefetchTemplate: false,
  *         templateUrl: "tabs-templates/tabs.html"
  *       })
- *       .state('tabs.home', {
- *         url: "/home",
+ *       .state('tabs.home_bak', {
+ *         url: "/home_bak",
  *         views: {
- *           'home-tab': {
+ *           'home_bak-tab': {
  *             prefetchTemplate: false,
- *             templateUrl: "tabs-templates/home.html",
+ *             templateUrl: "tabs-templates/home_bak.html",
  *             controller: 'HomeTabCtrl'
  *           }
  *         }
@@ -6757,7 +6757,7 @@ IonicModule
 
         ionic.requestAnimationFrame(tail);
 
-        // scroll back to home during tail animation
+        // scroll back to home_bak during tail animation
         scrollTo(0, scrollTime, deactivate);
 
         // return to native scrolling after tail animation has time to finish
@@ -8402,7 +8402,7 @@ IonicModule
  * <ion-content>
  *   <h2>Available Kittens:</h2>
  *   <ion-scroll direction="x" class="available-scroller">
- *     <div class="photo" collection-repeat="photo in home.photos"
+ *     <div class="photo" collection-repeat="photo in home_bak.photos"
  *        item-height="250" item-width="photo.width + 30">
  *        <img ng-src="{{photo.src}}">
  *     </div>
@@ -10301,7 +10301,7 @@ IonicModule
         container.append($element);
         itemCtrl.$element.append(container).addClass('item-left-editable');
 
-        //Don't bubble click up to home .item
+        //Don't bubble click up to home_bak .item
         $element.on('click', stopPropagation);
 
         init();
@@ -10402,7 +10402,7 @@ IonicModule.directive('ionOptionButton', [function() {
 
         itemCtrl.$element.addClass('item-right-editable');
 
-        //Don't bubble click up to home .item
+        //Don't bubble click up to home_bak .item
         $element.on('click', stopPropagation);
       };
     }
@@ -10796,7 +10796,7 @@ function($timeout) {
  * automatically close the currently opened menu.
  *
  * ```html
- * <a menu-close href="#/home" class="item">Home</a>
+ * <a menu-close href="#/home_bak" class="item">Home</a>
  * ```
  */
 IonicModule
@@ -11203,7 +11203,7 @@ IonicModule
  * @usage
  *
  * ```html
- * <a nav-direction="forward" href="#/home">Home</a>
+ * <a nav-direction="forward" href="#/home_bak">Home</a>
  * ```
  */
 IonicModule
@@ -11305,7 +11305,7 @@ IonicModule
  * @usage
  *
  * ```html
- * <a nav-transition="none" href="#/home">Home</a>
+ * <a nav-transition="none" href="#/home_bak">Home</a>
  * ```
  */
 IonicModule
@@ -11363,7 +11363,7 @@ IonicModule
  *   $stateProvider
  *   .state('index', {
  *     url: '/',
- *     templateUrl: 'home.html'
+ *     templateUrl: 'home_bak.html'
  *   })
  *   .state('music', {
  *     url: '/music',
@@ -11372,14 +11372,14 @@ IonicModule
  * });
  * ```
  * Then on app start, $stateProvider will look at the url, see it matches the index state,
- * and then try to load home.html into the `<ion-nav-view>`.
+ * and then try to load home_bak.html into the `<ion-nav-view>`.
  *
  * Pages are loaded by the URLs given. One simple way to create templates in Angular is to put
  * them directly into your HTML file and use the `<script type="text/ng-template">` syntax.
- * So here is one way to put home.html into our app:
+ * So here is one way to put home_bak.html into our app:
  *
  * ```html
- * <script id="home" type="text/ng-template">
+ * <script id="home_bak" type="text/ng-template">
  *   <!-- The title of the ion-view will be shown on the navbar -->
  *   <ion-view view-title="Home">
  *     <ion-content ng-controller="HomeCtrl">
@@ -11988,7 +11988,7 @@ IonicModule
  * @parent ionic.directive:ionSideMenus
  *
  * @description
- * A container for the home visible content, sibling to one or more-test
+ * A container for the home_bak visible content, sibling to one or more-test
  * {@link ionic.directive:ionSideMenu} directives.
  *
  * @usage
@@ -12202,8 +12202,8 @@ IonicModule
  * @restrict E
  *
  * @description
- * A container element for side menu(s) and the home content. Allows the left and/or right side menu
- * to be toggled by dragging the home content area side to side.
+ * A container element for side menu(s) and the home_bak content. Allows the left and/or right side menu
+ * to be toggled by dragging the home_bak content area side to side.
  *
  * To automatically close an opened menu, you can add the {@link ionic.directive:menuClose} attribute
  * directive. The `menu-close` attribute is usually added to links and buttons within

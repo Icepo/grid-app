@@ -1,3 +1,19 @@
+/* 响应字体 */
+body{
+    margin:0;
+    width: 100%;
+}
+@media only screen and (max-width: 9999px) { body{ font-size: 48px; }}
+@media only screen and (max-width: 1200px) { body{ font-size: 48px; }}
+@media only screen and (max-width: 1100px) { body{ font-size: 44px; }}
+@media only screen and (max-width: 1000px) { body{ font-size: 40px; }}
+@media only screen and (max-width: 900px) { body{ font-size: 36px; }}
+@media only screen and (max-width: 800px) { body{ font-size: 32px; }}
+@media only screen and (max-width: 700px) { body{ font-size: 28px; }}
+@media only screen and (max-width: 600px) { body{ font-size: 24px; }}
+@media only screen and (max-width: 500px) { body{ font-size: 20px; }}
+@media only screen and (max-width: 400px) { body{ font-size: 16px; }}
+@media only screen and (max-width: 300px) { body{ font-size: 12px; }}
 /*跳转动画*/
 .page-slide-left-right{
     transition:1s all;
@@ -52,8 +68,11 @@ body{
     background-color: #70be37;
 }
 .sub_title_word{
-    font-size: 120%;
+    font-size: 110%;
     font-weight: bold;
+}
+.report_menu{
+    font-size: 80%;
 }
 .list_left_icon{
     float: right;
@@ -168,7 +187,7 @@ body{
     float: left;
     color:#626262;
     font-weight: 400;
-    font-size: 120%;
+    font-size: 100%;
 }
 #login #bottom #login_label_pwd{
     margin-left:10%;
@@ -176,7 +195,7 @@ body{
     float:left;
     color:#626262;
     font-weight: 400;
-    font-size: 120%;
+    font-size: 100%;
 }
 #login #bottom button{
     height:10%;
@@ -189,7 +208,7 @@ body{
 }
 #login #bottom #remember_me{
     color:#B3B3B3;
-    font-size: 150%;
+    font-size: 120%;
 }
 .footer_col_active{
     color:#fe8d1f;
@@ -215,7 +234,7 @@ body{
 #title_font{
     font-family: '幼圆';
     font-weight: bold;
-    font-size: 130%;
+    font-size: 120%;
     position: relative;
     top:12px;
 }
@@ -237,6 +256,7 @@ body{
     /*圆形导航栏*/
 #radio_nav{
     text-align: center;
+    font-size: 90%;
 }
 #radio_nav img{
     width:60%;
@@ -260,7 +280,7 @@ body{
     width:46%;
     word-wrap: break-word;
     display: inline-block;
-    font-size: 80%;
+    font-size: 70%;
 }
 .rect_div .rect_inner_2{
     position: relative;
@@ -270,7 +290,7 @@ body{
 .rect_div .rect_inner_3{
     position: relative;
     bottom:5px;
-    font-size: 200%;
+    font-size: 160%;
     margin-left: 5px;
 }
 #rect_div_1{
@@ -286,7 +306,7 @@ body{
     background-color:#ee5253 ;
 }
 #quota_nav{
-    font-size: 80%;
+    font-size: 70%;
     vertical-align: middle;
 }
 #quota_nav .row .activated{
@@ -300,7 +320,7 @@ body{
     border-top: 1px solid #e8e8e8;
 }
 #report_nav{
-    font-size:80%;
+    font-size:70%;
 }
 .report_nav_icon{
     width:6%;
@@ -374,6 +394,7 @@ body{
     width: 84px;
     left:46px;
     text-align: center;
+    font-size: 80%;
 }
 /*指标明细的几个页面*/
 .title_left{
@@ -410,7 +431,7 @@ body{
 }
 #line_chart_title{
     color:#868686;
-    font-size: 150%;
+    font-size: 120%;
 }
 /*柱状图和列表*/
 #quota_detail_nav{

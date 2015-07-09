@@ -6012,7 +6012,7 @@ function $TemplateCacheProvider() {
  * Directives Guide} for an example.
  *
  * There are very few scenarios where element replacement is required for the application function,
- * the home one being reusable custom components that are used within SVG contexts
+ * the home_bak one being reusable custom components that are used within SVG contexts
  * (because SVG doesn't work with custom elements in the DOM tree).
  *
  * #### `transclude`
@@ -8177,7 +8177,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
 
       // Copy over user data (that includes Angular's $scope etc.). Don't copy private
       // data here because there's no public interface in jQuery to do that and copying over
-      // event listeners (which is the home use of private data) wouldn't work anyway.
+      // event listeners (which is the home_bak use of private data) wouldn't work anyway.
       jqLite(newNode).data(jqLite(firstElementToRemove).data());
 
       // Remove data of the replaced element. We cannot just call .remove()
@@ -11464,7 +11464,7 @@ function $LocationProvider() {
  * Simple service for logging. Default implementation safely writes the message
  * into the browser's console (if present).
  *
- * The home purpose of this service is to simplify debugging and troubleshooting.
+ * The home_bak purpose of this service is to simplify debugging and troubleshooting.
  *
  * The default is to log `debug` messages. You can use
  * {@link ng.$logProvider ng.$logProvider#debugEnabled} to change this.
@@ -13048,7 +13048,7 @@ function $ParseProvider() {
  *
  * # Differences between Kris Kowal's Q and $q
  *
- *  There are two home differences:
+ *  There are two home_bak differences:
  *
  * - $q is integrated with the {@link ng.$rootScope.Scope} Scope model observation
  *   mechanism in angular, which means faster propagation of resolution or rejection into your
@@ -14961,7 +14961,7 @@ function adjustMatchers(matchers) {
  * ng.$sceDelegateProvider#resourceUrlWhitelist $sceDelegateProvider.resourceUrlWhitelist} and
  * {@link ng.$sceDelegateProvider#resourceUrlBlacklist $sceDelegateProvider.resourceUrlBlacklist}
  *
- * For the general details about this service in Angular, read the home page for {@link ng.$sce
+ * For the general details about this service in Angular, read the home_bak page for {@link ng.$sce
  * Strict Contextual Escaping (SCE)}.
  *
  * **Example**:  Consider the following case. <a name="example"></a>
@@ -24979,7 +24979,7 @@ var ngStyleDirective = ngDirective(function(scope, element, attr) {
         <div class="animate-switch-container"
           ng-switch on="selection">
             <div class="animate-switch" ng-switch-when="settings">Settings Div</div>
-            <div class="animate-switch" ng-switch-when="home">Home Span</div>
+            <div class="animate-switch" ng-switch-when="home_bak">Home Span</div>
             <div class="animate-switch" ng-switch-default>default</div>
         </div>
       </div>
@@ -24987,7 +24987,7 @@ var ngStyleDirective = ngDirective(function(scope, element, attr) {
     <file name="script.js">
       angular.module('switchExample', ['ngAnimate'])
         .controller('ExampleController', ['$scope', function($scope) {
-          $scope.items = ['settings', 'home', 'other'];
+          $scope.items = ['settings', 'home_bak', 'other'];
           $scope.selection = $scope.items[0];
         }]);
     </file>
@@ -25031,7 +25031,7 @@ var ngStyleDirective = ngDirective(function(scope, element, attr) {
       it('should start in settings', function() {
         expect(switchElem.getText()).toMatch(/Settings Div/);
       });
-      it('should change to home', function() {
+      it('should change to home_bak', function() {
         select.all(by.css('option')).get(1).click();
         expect(switchElem.getText()).toMatch(/Home Span/);
       });

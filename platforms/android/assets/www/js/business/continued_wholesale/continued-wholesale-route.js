@@ -7,7 +7,7 @@ app.config(['$stateProvider',function($stateProvider){
             url:'/continued',
             views:{
                 'app':{
-                    templateUrl:'module/business/continued_wholesale/continued_wholesale.html',
+                    templateUrl:'continued_wholesale.html',
                     controller:'continuedController'
                 }
             }
@@ -16,7 +16,7 @@ app.config(['$stateProvider',function($stateProvider){
             url:'/list',
             views:{
                 'continued_wholesale_top':{
-                    templateUrl:'module/business/continued_wholesale/continued_wholesale_top.html'
+                    templateUrl:'continued_wholesale_top.html'
                 },
                 'continued_wholesale_bottom':{
                     template:'<div ui-view="continued_wholesale_bottom_list"></div>'
@@ -27,13 +27,13 @@ app.config(['$stateProvider',function($stateProvider){
             url:'/show',
             views:{
                 'continued_wholesale_top_header':{
-                    templateUrl:'module/business/continued_wholesale/continued_wholesale_top_header.html'
+                    templateUrl:'continued_wholesale_top_header.html'
                 },
                 'continued_wholesale_top_monthpicker':{
-                    templateUrl:'module/business/continued_wholesale/continued_wholesale_top_monthpicker.html'
+                    templateUrl:'continued_wholesale_top_monthpicker.html'
                 },
                 'continued_wholesale_bottom_list':{
-                    templateUrl:'module/business/continued_wholesale/continued_wholesale_list_grid.html'
+                    templateUrl:'continued_wholesale_list_grid.html'
                 }
             }
         })
@@ -41,13 +41,13 @@ app.config(['$stateProvider',function($stateProvider){
             url:'/user',
             views:{
                 'continued_wholesale_top_header':{
-                    templateUrl:'module/business/continued_wholesale/continued_wholesale_top_header.html'
+                    templateUrl:'continued_wholesale_top_header.html'
                 },
                 'continued_wholesale_top_monthpicker':{
-                    templateUrl:'module/business/continued_wholesale/continued_wholesale_top_monthpicker.html'
+                    templateUrl:'continued_wholesale_top_monthpicker.html'
                 },
                 'continued_wholesale_bottom_list':{
-                    templateUrl:'module/business/continued_wholesale/continued_wholesale_list_user.html'
+                    templateUrl:'continued_wholesale_list_user.html'
                 }
             }
         })
@@ -55,10 +55,10 @@ app.config(['$stateProvider',function($stateProvider){
             url:'userInfo',
             views:{
                 'continued_wholesale_top_header':{
-                    templateUrl:'module/business/continued_wholesale/continued_wholesale_top_header.html'
+                    templateUrl:'continued_wholesale_top_header.html'
                 },
                 'continued_wholesale_bottom_list':{
-                    templateUrl:'module/business/continued_wholesale/continued_wholesale_user_info.html'
+                    templateUrl:'continued_wholesale_user_info.html'
                 }
             }
         })

@@ -1,4 +1,4 @@
-    <div id="report_nav">
+<div id="report_nav">
     <div class="row hr_style">
         <div class="col">
             <span class="sub_title_icon">&nbsp;</span>&nbsp;<span class="sub_title_word">{{reportNav.catalogName}}</span>
@@ -6,7 +6,7 @@
     </div>
     <div class="row hr_style" ng-repeat="menu in reportNav.menuList">
         <div class="col">
-            <img ng-src="{{menu.imgUrl}}" class="report_nav_icon">&nbsp;{{menu.menuName}}<img src="img/arrow_right.png" class="list_left_icon">
+            <img ng-src="{{menu.imgUrl}}" class="report_nav_icon">&nbsp;{{menu.menuName}}<img ng-src="img/arrow_right.png" class="list_left_icon">
         </div>
     </div>
 </div>

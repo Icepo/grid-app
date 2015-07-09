@@ -22,16 +22,16 @@
                 }
             })
             .state('index.home',{
-                url:'/home',
+                url:'/home_bak',
                 views:{
                     'header':{
-                        templateUrl:'module/system/header.html'
+                        templateUrl:'header.html'
                     },
                     'content':{
-                        templateUrl:'module/home/home.html'
+                        templateUrl:'home.html'
                     },
                     'footer':{
-                        templateUrl:'module/system/footer.html'
+                        templateUrl:'footer.html'
                     }
                 }
             })
@@ -39,21 +39,21 @@
                 url:'/show',
                 views:{
                     'radio_nav':{
-                        templateUrl:'module/home/radio_nav.html'
+                        templateUrl:'radio_nav.html'
                     },
                     'bar_nav':{
                         template:'<div id="bar_nav">&nbsp;</div>'
                     },
                     'rect_nav':{
-                        templateUrl:'module/home/rect_nav.html',
+                        templateUrl:'rect_nav.html',
                         controller:'quotaController'
                     },
                     'quota_nav':{
-                        templateUrl:'module/home/quota_nav.html',
+                        templateUrl:'quota_nav.html',
                         controller:'quotaController'
                     },
                     'report_nav':{
-                        templateUrl:'module/home/report_nav.html'
+                        templateUrl:'report_nav.html'
                     }
                 }
             })
@@ -61,13 +61,13 @@
                 url:'/show_leader',
                 views:{
                     'rect_nav':{
-                        templateUrl:'module/home/rect_nav.html'
+                        templateUrl:'rect_nav.html'
                     },
                     'quota_nav':{
-                        templateUrl:'module/home/quota_nav.html'
+                        templateUrl:'quota_nav.html'
                     },
                     'report_nav':{
-                        templateUrl:'module/home/report_nav.html'
+                        templateUrl:'report_nav.html'
                     }
                 }
             })
@@ -76,14 +76,14 @@
                 abstract:true,
                 views:{
                     'header':{
-                        templateUrl:'module/system/header_simple.html'
+                        templateUrl:'header_simple.html'
                     },
                     'content':{
-                        templateUrl:'module/report/report.html',
+                        template:'<div ui-view="report_catalog"></div>',
                         controller:'reportController'
                     },
                     'footer':{
-                        templateUrl:'module/system/footer.html'
+                        templateUrl:'footer.html'
                     }
                 }
             })
@@ -91,40 +91,40 @@
                 url:'/show',
                 views:{
                     'report_catalog':{
-                        templateUrl:'module/report/report_catalog.html',
+                        templateUrl:'report_catalog.html',
                         controller:'reportController'
                     }
                 }
             })
-            .state('index.quota',{
-                url:'/quota',
+            .state('index.quota_bak',{
+                url:'/quota_bak',
                 abstract:true,
                 views:{
                     'header':{
-                        templateUrl:'module/system/header_simple.html'
+                        templateUrl:'header_simple.html'
                     },
                     'content':{
-                        templateUrl:'module/quota/quota.html',
+                        templateUrl:'quota.html',
                         controller:'quotaController'
                     },
                     'footer':{
-                        templateUrl:'module/system/footer.html'
+                        templateUrl:'footer.html'
                     }
                 }
             })
-            .state('index.quota.show',{
+            .state('index.quota_bak.show',{
                 url:'/show',
                 views:{
                     'quota_catalog':{
-                        templateUrl:'module/quota/quota_catalog.html'
+                        templateUrl:'quota_catalog.html'
                     },
                     'quota_menus':{
-                        templateUrl:'module/quota/quota_menus.html'
+                        templateUrl:'quota_menus.html'
                     }
                 }
             })
-            .state('more',{
-                url:'/more-test',
+            .state('index.more.show',{
+                url:'/test',
                 views:{
                     'app':{
                         templateUrl:'test.html',

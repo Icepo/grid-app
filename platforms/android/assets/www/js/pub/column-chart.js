@@ -35,7 +35,7 @@ function drawColumnChart(data,$state){
         if(clickX>bgPosition.basePoint.x-5){    //精确度5px
             for(var i=0;i<startPoints.length;i++){
                 if(Math.abs(clickY-startPoints[i].y)<colHeight-1){  //留出1px的误差值
-                    $state.go('quota.chart.columnchart');
+                    $state.go('quota_bak.chart.columnchart');
                 }
             }
         }

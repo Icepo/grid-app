@@ -1,3 +1,45 @@
 /**
  * Created by liuzhangjun on 2015-6-8.
  */
+app.directive('pub',function(){
+    return{
+        restrict:'E',
+        replace:true,
+        templateUrl:'pub.html'
+    }
+});
+app.directive('home',function(){
+    return{
+        restrict:'E',
+        replace:true,
+        templateUrl:'home.html'
+    }
+});
+app.directive('quota',function(){
+    return{
+        restrict:'E',
+        replace:true,
+        templateUrl:'quota.html'
+    }
+});
+app.directive('report',function(){
+    return{
+        restrict:'E',
+        replace:true,
+        templateUrl:'report.html'
+    }
+});
+app.directive('activity',function(){
+    return{
+        restrict:'E',
+        replace:true,
+        templateUrl:'activity.html'
+    }
+});
+app.directive('continuedWholesale',function(){
+    return{
+        restrict:'E',
+        replace:true,
+        templateUrl:'continued_wholesale.html'
+    }
+});

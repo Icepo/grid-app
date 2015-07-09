@@ -55,7 +55,7 @@
                                 "menuDesc": "",
                                 "menuId": "3",
                                 "menuName": "活动",
-                                "menuUrl": "activity.list.show",
+                                "menuUrl": "activity.show",
                                 "orderNo": "3",
                                 "sts": "",
                                 "stsDate": ""
@@ -301,7 +301,7 @@
                         "stsDate": ""
                     }
                 ],
-                "pageCode": "home",
+                "pageCode": "home_bak",
                 "pageIcon": "",
                 "pageName": "首页"
             },
@@ -456,7 +456,7 @@
                         "stsDate": ""
                     }
                 ],
-                "pageCode": "quota",
+                "pageCode": "quota_bak",
                 "pageIcon": "",
                 "pageName": "指标"
             },

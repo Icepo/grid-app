@@ -4714,7 +4714,7 @@ ionic.views.Scroll = ionic.views.View.inherit({
       /** Enable bouncing (content can be slowly moved outside and jumps back after releasing) */
       bouncing: true,
 
-      /** Enable locking to the home axis if user moves only slightly on one of them at start */
+      /** Enable locking to the home_bak axis if user moves only slightly on one of them at start */
       locking: true,
 
       /** Enable pagination mode (switching between full page content panes) */
@@ -14711,7 +14711,7 @@ function $TemplateCacheProvider() {
  * Directives Guide} for an example.
  *
  * There are very few scenarios where element replacement is required for the application function,
- * the home one being reusable custom components that are used within SVG contexts
+ * the home_bak one being reusable custom components that are used within SVG contexts
  * (because SVG doesn't work with custom elements in the DOM tree).
  *
  * #### `transclude`
@@ -16876,7 +16876,7 @@ function $CompileProvider($provide, $$sanitizeUriProvider) {
 
       // Copy over user data (that includes Angular's $scope etc.). Don't copy private
       // data here because there's no public interface in jQuery to do that and copying over
-      // event listeners (which is the home use of private data) wouldn't work anyway.
+      // event listeners (which is the home_bak use of private data) wouldn't work anyway.
       jqLite(newNode).data(jqLite(firstElementToRemove).data());
 
       // Remove data of the replaced element. We cannot just call .remove()
@@ -20163,7 +20163,7 @@ function $LocationProvider() {
  * Simple service for logging. Default implementation safely writes the message
  * into the browser's console (if present).
  *
- * The home purpose of this service is to simplify debugging and troubleshooting.
+ * The home_bak purpose of this service is to simplify debugging and troubleshooting.
  *
  * The default is to log `debug` messages. You can use
  * {@link ng.$logProvider ng.$logProvider#debugEnabled} to change this.
@@ -21747,7 +21747,7 @@ function $ParseProvider() {
  *
  * # Differences between Kris Kowal's Q and $q
  *
- *  There are two home differences:
+ *  There are two home_bak differences:
  *
  * - $q is integrated with the {@link ng.$rootScope.Scope} Scope model observation
  *   mechanism in angular, which means faster propagation of resolution or rejection into your
@@ -23660,7 +23660,7 @@ function adjustMatchers(matchers) {
  * ng.$sceDelegateProvider#resourceUrlWhitelist $sceDelegateProvider.resourceUrlWhitelist} and
  * {@link ng.$sceDelegateProvider#resourceUrlBlacklist $sceDelegateProvider.resourceUrlBlacklist}
  *
- * For the general details about this service in Angular, read the home page for {@link ng.$sce
+ * For the general details about this service in Angular, read the home_bak page for {@link ng.$sce
  * Strict Contextual Escaping (SCE)}.
  *
  * **Example**:  Consider the following case. <a name="example"></a>
@@ -33678,7 +33678,7 @@ var ngStyleDirective = ngDirective(function(scope, element, attr) {
         <div class="animate-switch-container"
           ng-switch on="selection">
             <div class="animate-switch" ng-switch-when="settings">Settings Div</div>
-            <div class="animate-switch" ng-switch-when="home">Home Span</div>
+            <div class="animate-switch" ng-switch-when="home_bak">Home Span</div>
             <div class="animate-switch" ng-switch-default>default</div>
         </div>
       </div>
@@ -33686,7 +33686,7 @@ var ngStyleDirective = ngDirective(function(scope, element, attr) {
     <file name="script.js">
       angular.module('switchExample', ['ngAnimate'])
         .controller('ExampleController', ['$scope', function($scope) {
-          $scope.items = ['settings', 'home', 'other'];
+          $scope.items = ['settings', 'home_bak', 'other'];
           $scope.selection = $scope.items[0];
         }]);
     </file>
@@ -33730,7 +33730,7 @@ var ngStyleDirective = ngDirective(function(scope, element, attr) {
       it('should start in settings', function() {
         expect(switchElem.getText()).toMatch(/Settings Div/);
       });
-      it('should change to home', function() {
+      it('should change to home_bak', function() {
         select.all(by.css('option')).get(1).click();
         expect(switchElem.getText()).toMatch(/Home Span/);
       });
@@ -37929,7 +37929,7 @@ angular.module('ui.router.router', ['ui.router.util']);
  * @description
  * # ui.router.state sub-module
  *
- * This module is a dependency of the home ui.router module. Do not include this module as a dependency
+ * This module is a dependency of the home_bak ui.router module. Do not include this module as a dependency
  * in your angular app (use {@link ui.router} module instead).
  * 
  */
@@ -37944,12 +37944,12 @@ angular.module('ui.router.state', ['ui.router.router', 'ui.router.util']);
  * @description
  * # ui.router
  * 
- * ## The home module for ui.router
+ * ## The home_bak module for ui.router
  * There are several sub-modules included with the ui.router module, however only this module is needed
  * as a dependency within your angular app. The other modules are for organization purposes. 
  *
  * The modules are:
- * * ui.router - the home "umbrella" module
+ * * ui.router - the home_bak "umbrella" module
  * * ui.router.router - 
  * 
  * *You'll need to include **only** this module as the dependency within your angular app.*
@@ -40111,7 +40111,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    *   return result;
    * });
    *
-   * $stateProvider.state('home', {
+   * $stateProvider.state('home_bak', {
    *   views: {
    *     'contact.list': { controller: 'ListController' },
    *     'contact.item': { controller: 'ItemController' }
@@ -40120,9 +40120,9 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    *
    * // ...
    *
-   * $state.go('home');
-   * // Auto-populates list and item views with /partials/home/contact/list.html,
-   * // and /partials/home/contact/item.html, respectively.
+   * $state.go('home_bak');
+   * // Auto-populates list and item views with /partials/home_bak/contact/list.html,
+   * // and /partials/home_bak/contact/item.html, respectively.
    * </pre>
    *
    * @param {string} name The name of the builder function to decorate. 
@@ -40159,8 +40159,8 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    * Registers a state configuration under a given state name. The stateConfig object
    * has the following acceptable properties.
    *
-   * @param {string} name A unique state name, e.g. "home", "about", "contacts".
-   * To create a parent/child state use a dot, e.g. "about.sales", "home.newest".
+   * @param {string} name A unique state name, e.g. "home_bak", "about", "contacts".
+   * To create a parent/child state use a dot, e.g. "about.sales", "home_bak.newest".
    * @param {object} stateConfig State configuration object.
    * @param {string|function=} stateConfig.template
    * <a id='template'></a>
@@ -40191,7 +40191,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    *   - {array.&lt;object&gt;} - state parameters extracted from the current $location.path() by 
    *     applying the current state
    *
-   * <pre>templateUrl: "home.html"</pre>
+   * <pre>templateUrl: "home_bak.html"</pre>
    * <pre>templateUrl: function(params) {
    *     return myTemplates[params.pageId]; }</pre>
    *
@@ -40269,7 +40269,7 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    *   parameters that were passed.
    *
    * examples:
-   * <pre>url: "/home"
+   * <pre>url: "/home_bak"
    * url: "/users/:userid"
    * url: "/books/{bookid:[a-zA-Z_-]}"
    * url: "/books/{categoryid:int}"
@@ -40441,18 +40441,18 @@ function $StateProvider(   $urlRouterProvider,   $urlMatcherFactory) {
    * // Some state name examples
    *
    * // stateName can be a single top-level name (must be unique).
-   * $stateProvider.state("home", {});
+   * $stateProvider.state("home_bak", {});
    *
    * // Or it can be a nested state name. This state is a child of the
-   * // above "home" state.
-   * $stateProvider.state("home.newest", {});
+   * // above "home_bak" state.
+   * $stateProvider.state("home_bak.newest", {});
    *
    * // Nest states as deeply as needed.
-   * $stateProvider.state("home.newest.abc.xyz.inception", {});
+   * $stateProvider.state("home_bak.newest.abc.xyz.inception", {});
    *
    * // state() returns $stateProvider, so you can chain state declarations.
    * $stateProvider
-   *   .state("home", {})
+   *   .state("home_bak", {})
    *   .state("about", {})
    *   .state("contacts", {});
    * </pre>
@@ -41332,7 +41332,7 @@ angular.module('ui.router.state').provider('$uiViewScroll', $ViewScrollProvider)
  * single view and it is unnamed then you can populate it like so:
  * <pre>
  * <div ui-view></div> 
- * $stateProvider.state("home", {
+ * $stateProvider.state("home_bak", {
  *   template: "<h1>HELLO!</h1>"
  * })
  * </pre>
@@ -41340,7 +41340,7 @@ angular.module('ui.router.state').provider('$uiViewScroll', $ViewScrollProvider)
  * The above is a convenient shortcut equivalent to specifying your view explicitly with the {@link ui.router.state.$stateProvider#views `views`}
  * config property, by name, in this case an empty name:
  * <pre>
- * $stateProvider.state("home", {
+ * $stateProvider.state("home_bak", {
  *   views: {
  *     "": {
  *       template: "<h1>HELLO!</h1>"
@@ -41353,12 +41353,12 @@ angular.module('ui.router.state').provider('$uiViewScroll', $ViewScrollProvider)
  * in the same template. There's not really a compelling reason to name a view if its the only one, 
  * but you could if you wanted, like so:
  * <pre>
- * <div ui-view="home"></div>
+ * <div ui-view="home_bak"></div>
  * </pre> 
  * <pre>
- * $stateProvider.state("home", {
+ * $stateProvider.state("home_bak", {
  *   views: {
- *     "home": {
+ *     "home_bak": {
  *       template: "<h1>HELLO!</h1>"
  *     }
  *   }    
@@ -41373,7 +41373,7 @@ angular.module('ui.router.state').provider('$uiViewScroll', $ViewScrollProvider)
  * </pre>
  * 
  * <pre>
- * $stateProvider.state("home", {
+ * $stateProvider.state("home_bak", {
  *   views: {
  *     "": {
  *       template: "<h1>HELLO!</h1>"
@@ -41639,7 +41639,7 @@ function stateContext(el) {
  * Here's an example of how you'd use ui-sref and how it would compile. If you have the 
  * following template:
  * <pre>
- * <a ui-sref="home">Home</a> | <a ui-sref="about">About</a> | <a ui-sref="{page: 2}">Next page</a>
+ * <a ui-sref="home_bak">Home</a> | <a ui-sref="about">About</a> | <a ui-sref="{page: 2}">Next page</a>
  * 
  * <ul>
  *     <li ng-repeat="contact in contacts">
@@ -41650,7 +41650,7 @@ function stateContext(el) {
  * 
  * Then the compiled html would be (assuming Html5Mode is off and current state is contacts):
  * <pre>
- * <a href="#/home" ui-sref="home">Home</a> | <a href="#/about" ui-sref="about">About</a> | <a href="#/contacts?page=2" ui-sref="{page: 2}">Next page</a>
+ * <a href="#/home_bak" ui-sref="home_bak">Home</a> | <a href="#/about" ui-sref="about">About</a> | <a href="#/contacts?page=2" ui-sref="{page: 2}">Next page</a>
  * 
  * <ul>
  *     <li ng-repeat="contact in contacts">
@@ -41664,7 +41664,7 @@ function stateContext(el) {
  *     </li>
  * </ul>
  *
- * <a ui-sref="home" ui-sref-opts="{reload: true}">Home</a>
+ * <a ui-sref="home_bak" ui-sref-opts="{reload: true}">Home</a>
  * </pre>
  *
  * @param {string} ui-sref 'stateName' can be any valid absolute or relative state
@@ -44238,7 +44238,7 @@ function($ionicLoadingConfig, $ionicBody, $ionicTemplateLoader, $ionicBackdrop, 
  *
  * Related: {@link ionic.controller:ionicModal ionicModal controller}.
  *
- * The Modal is a content pane that can go over the user's home view
+ * The Modal is a content pane that can go over the user's home_bak view
  * temporarily.  Usually used for making a choice or editing an item.
  *
  * Put the content of the modal inside of an `<ion-modal-view>` element.
@@ -44248,7 +44248,7 @@ function($ionicLoadingConfig, $ionicBody, $ionicTemplateLoader, $ionicBackdrop, 
  * scope, passing in itself as an event argument. Both the modal.removed and modal.hidden events are
  * called when the modal is removed.
  *
- * - This example assumes your modal is in your home index file or another template file. If it is in its own
+ * - This example assumes your modal is in your home_bak index file or another template file. If it is in its own
  * template file, remove the script tags and call it by file name.
  *
  * @usage
@@ -46123,12 +46123,12 @@ IonicModule
  *         prefetchTemplate: false,
  *         templateUrl: "tabs-templates/tabs.html"
  *       })
- *       .state('tabs.home', {
- *         url: "/home",
+ *       .state('tabs.home_bak', {
+ *         url: "/home_bak",
  *         views: {
- *           'home-tab': {
+ *           'home_bak-tab': {
  *             prefetchTemplate: false,
- *             templateUrl: "tabs-templates/home.html",
+ *             templateUrl: "tabs-templates/home_bak.html",
  *             controller: 'HomeTabCtrl'
  *           }
  *         }
@@ -48667,7 +48667,7 @@ IonicModule
 
         ionic.requestAnimationFrame(tail);
 
-        // scroll back to home during tail animation
+        // scroll back to home_bak during tail animation
         scrollTo(0, scrollTime, deactivate);
 
         // return to native scrolling after tail animation has time to finish
@@ -50312,7 +50312,7 @@ IonicModule
  * <ion-content>
  *   <h2>Available Kittens:</h2>
  *   <ion-scroll direction="x" class="available-scroller">
- *     <div class="photo" collection-repeat="photo in home.photos"
+ *     <div class="photo" collection-repeat="photo in home_bak.photos"
  *        item-height="250" item-width="photo.width + 30">
  *        <img ng-src="{{photo.src}}">
  *     </div>
@@ -52211,7 +52211,7 @@ IonicModule
         container.append($element);
         itemCtrl.$element.append(container).addClass('item-left-editable');
 
-        //Don't bubble click up to home .item
+        //Don't bubble click up to home_bak .item
         $element.on('click', stopPropagation);
 
         init();
@@ -52312,7 +52312,7 @@ IonicModule.directive('ionOptionButton', [function() {
 
         itemCtrl.$element.addClass('item-right-editable');
 
-        //Don't bubble click up to home .item
+        //Don't bubble click up to home_bak .item
         $element.on('click', stopPropagation);
       };
     }
@@ -52706,7 +52706,7 @@ function($timeout) {
  * automatically close the currently opened menu.
  *
  * ```html
- * <a menu-close href="#/home" class="item">Home</a>
+ * <a menu-close href="#/home_bak" class="item">Home</a>
  * ```
  */
 IonicModule
@@ -53113,7 +53113,7 @@ IonicModule
  * @usage
  *
  * ```html
- * <a nav-direction="forward" href="#/home">Home</a>
+ * <a nav-direction="forward" href="#/home_bak">Home</a>
  * ```
  */
 IonicModule
@@ -53215,7 +53215,7 @@ IonicModule
  * @usage
  *
  * ```html
- * <a nav-transition="none" href="#/home">Home</a>
+ * <a nav-transition="none" href="#/home_bak">Home</a>
  * ```
  */
 IonicModule
@@ -53273,7 +53273,7 @@ IonicModule
  *   $stateProvider
  *   .state('index', {
  *     url: '/',
- *     templateUrl: 'home.html'
+ *     templateUrl: 'home_bak.html'
  *   })
  *   .state('music', {
  *     url: '/music',
@@ -53282,14 +53282,14 @@ IonicModule
  * });
  * ```
  * Then on app start, $stateProvider will look at the url, see it matches the index state,
- * and then try to load home.html into the `<ion-nav-view>`.
+ * and then try to load home_bak.html into the `<ion-nav-view>`.
  *
  * Pages are loaded by the URLs given. One simple way to create templates in Angular is to put
  * them directly into your HTML file and use the `<script type="text/ng-template">` syntax.
- * So here is one way to put home.html into our app:
+ * So here is one way to put home_bak.html into our app:
  *
  * ```html
- * <script id="home" type="text/ng-template">
+ * <script id="home_bak" type="text/ng-template">
  *   <!-- The title of the ion-view will be shown on the navbar -->
  *   <ion-view view-title="Home">
  *     <ion-content ng-controller="HomeCtrl">
@@ -53898,7 +53898,7 @@ IonicModule
  * @parent ionic.directive:ionSideMenus
  *
  * @description
- * A container for the home visible content, sibling to one or more-test
+ * A container for the home_bak visible content, sibling to one or more-test
  * {@link ionic.directive:ionSideMenu} directives.
  *
  * @usage
@@ -54112,8 +54112,8 @@ IonicModule
  * @restrict E
  *
  * @description
- * A container element for side menu(s) and the home content. Allows the left and/or right side menu
- * to be toggled by dragging the home content area side to side.
+ * A container element for side menu(s) and the home_bak content. Allows the left and/or right side menu
+ * to be toggled by dragging the home_bak content area side to side.
  *
  * To automatically close an opened menu, you can add the {@link ionic.directive:menuClose} attribute
  * directive. The `menu-close` attribute is usually added to links and buttons within

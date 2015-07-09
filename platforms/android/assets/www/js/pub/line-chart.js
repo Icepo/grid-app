@@ -167,7 +167,7 @@ function drawLineChart(data,$state,communicateService,paramsService){
                 //绘图方法里面修改state 这个做法增加耦合 不好 TODO
                 communicateService.communicateTest('appService','action','quotaDataList').success(function(data){
                     paramsService.quotaDataList=data;
-                    $state.go('quota.chart.columnchart');
+                    $state.go('quota_bak.chart.columnchart');
                 });
 
             }

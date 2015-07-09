@@ -1,18 +1,18 @@
 app.config(['$stateProvider',function($stateProvider){
     $stateProvider
-        .state('quota',{
-            url:'/quota',
+        .state('quota_bak',{
+            url:'/quota_bak',
             views:{
                 'app':{
-                    templateUrl:'module/quota/quota_detail.html'
+                    templateUrl:'module/quota_bak/quota_detail.html'
                 }
             }
         })
-        .state('quota.chart',{
+        .state('quota_bak.chart',{
             url:'/chart',
             views:{
                 'quota_detail_top':{
-                    templateUrl:'module/quota/quota_detail_top.html',
+                    templateUrl:'module/quota_bak/quota_detail_top.html',
                     controller:'quotaTopController'
                 },
                 'quota_detail_bottom':{
@@ -20,52 +20,52 @@ app.config(['$stateProvider',function($stateProvider){
                 }
             }
         })
-        .state('quota.chart.linechart',{
+        .state('quota_bak.chart.linechart',{
             url:'/linechart',
             views:{
                 'quota_detail_top_header':{
-                    templateUrl:'module/quota/quota_detail_top_header.html'
+                    templateUrl:'module/quota_bak/quota_detail_top_header.html'
                 },
                 'quota_detail_top_datepicker':{
-                    templateUrl:'module/quota/quota_detail_top_datepicker.html'
+                    templateUrl:'module/quota_bak/quota_detail_top_datepicker.html'
                 },
                 'quota_detail_chart':{
-                    templateUrl:'module/quota/quota_linechart.html',
+                    templateUrl:'module/quota_bak/quota_linechart.html',
                     controller:'lineChartController'
                 }
             }
         })
-        .state('quota.chart.columnchart',{
+        .state('quota_bak.chart.columnchart',{
             url:'/columnchart',
             views:{
                 'quota_detail_top_header':{
-                    templateUrl:'module/quota/quota_detail_top_header.html'
+                    templateUrl:'module/quota_bak/quota_detail_top_header.html'
                 },
                 'quota_detail_top_nav':{
-                    templateUrl:'module/quota/quota_detail_top_nav.html'
+                    templateUrl:'module/quota_bak/quota_detail_top_nav.html'
                 },
                 'quota_detail_top_datepicker':{
-                    templateUrl:'module/quota/quota_detail_top_datepicker.html'
+                    templateUrl:'module/quota_bak/quota_detail_top_datepicker.html'
                 },
                 'quota_detail_chart':{
-                    templateUrl:'module/quota/quota_columnchart.html'
+                    templateUrl:'module/quota_bak/quota_columnchart.html'
                 }
             }
         })
-        .state('quota.chart.list',{
+        .state('quota_bak.chart.list',{
             url:'/list',
             views:{
                 'quota_detail_top_header':{
-                    templateUrl:'module/quota/quota_detail_top_header.html'
+                    templateUrl:'module/quota_bak/quota_detail_top_header.html'
                 },
                 'quota_detail_top_nav':{
-                    templateUrl:'module/quota/quota_detail_top_nav.html'
+                    templateUrl:'module/quota_bak/quota_detail_top_nav.html'
                 },
                 'quota_detail_top_datepicker':{
-                    templateUrl:'module/quota/quota_detail_top_datepicker.html'
+                    templateUrl:'module/quota_bak/quota_detail_top_datepicker.html'
                 },
                 'quota_detail_chart':{
-                    templateUrl:'module/quota/quota_list.html',
+                    templateUrl:'module/quota_bak/quota_list.html',
                     controller:'listController'
                 }
             }

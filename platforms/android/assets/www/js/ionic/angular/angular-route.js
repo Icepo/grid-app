@@ -715,7 +715,7 @@ ngRouteModule.directive('ngView', ngViewFillContentFactory);
  * @description
  * # Overview
  * `ngView` is a directive that complements the {@link ngRoute.$route $route} service by
- * including the rendered template of the current route into the home layout (`index.html`) file.
+ * including the rendered template of the current route into the home_bak layout (`index.html`) file.
  * Every time the current route changes, the included view changes with it according to the
  * configuration of the `$route` service.
  *
@@ -743,7 +743,7 @@ ngRouteModule.directive('ngView', ngViewFillContentFactory);
              deps="angular-route.js;angular-animate.js"
              animations="true" fixBase="true">
       <file name="index.html">
-        <div ng-controller="MainCtrl as home">
+        <div ng-controller="MainCtrl as home_bak">
           Choose:
           <a href="Book/Moby">Moby</a> |
           <a href="Book/Moby/ch/1">Moby: Ch1</a> |
@@ -756,10 +756,10 @@ ngRouteModule.directive('ngView', ngViewFillContentFactory);
           </div>
           <hr />
 
-          <pre>$location.path() = {{home.$location.path()}}</pre>
-          <pre>$route.current.templateUrl = {{home.$route.current.templateUrl}}</pre>
-          <pre>$route.current.params = {{home.$route.current.params}}</pre>
-          <pre>$routeParams = {{home.$routeParams}}</pre>
+          <pre>$location.path() = {{home_bak.$location.path()}}</pre>
+          <pre>$route.current.templateUrl = {{home_bak.$route.current.templateUrl}}</pre>
+          <pre>$route.current.params = {{home_bak.$route.current.params}}</pre>
+          <pre>$routeParams = {{home_bak.$routeParams}}</pre>
         </div>
       </file>
 

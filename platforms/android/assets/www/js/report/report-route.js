@@ -7,7 +7,7 @@ app.config(['$stateProvider',function($stateProvider){
             url:'/report',
             views:{
                 'app':{
-                    templateUrl:'module/report/report_detail.html'
+                    templateUrl:'report_detail.html'
                 }
             }
         })
@@ -15,7 +15,7 @@ app.config(['$stateProvider',function($stateProvider){
             url:'/detail',
             views:{
                 'report_detail_top':{
-                    templateUrl:'module/report/report_detail_top.html',
+                    templateUrl:'report_detail_top.html',
                     controller:'reportController'
                 },
                 'report_detail_bottom':{
@@ -27,18 +27,18 @@ app.config(['$stateProvider',function($stateProvider){
             url:'/list',
             views:{
                 'report_detail_top_header':{
-                    templateUrl:'module/report/report_detail_top_header.html',
+                    templateUrl:'report_detail_top_header.html',
                     controller:'reportController'
                 },
                 'report_detail_top_option':{
-                    templateUrl:'module/report/report_detail_top_option.html'
+                    templateUrl:'report_detail_top_option.html'
                 },
                 'report_detail_list':{
-                    templateUrl:'module/report/report_detail_list.html',
+                    templateUrl:'report_detail_list.html',
                     controller:'reportList'
                 },
                 'report_options_select':{
-                    templateUrl:'module/report/report_options.html'
+                    templateUrl:'report_options.html'
                 }
             }
         })

@@ -1,17 +1,27 @@
-app.controller('loginController',['$scope','$state','$rootScope','communicateService','md5Service',function($scope,$state,$rootScope,communicateService,md5Service){
-    $scope.user={
-        username:'admin',
-        userpassword:'admin',
-        userimei:'111',
-        usermobile:'13167374376',
-        userremember:false
-    };
-    $scope.user.userpassword = md5Service.hex_md5($scope.user.userpassword);
+app.controller('loginController',['$scope','$state','$rootScope','communicateService','md5Service','constantService',function($scope,$state,$rootScope,communicateService,md5Service,constantService){
+    if(localStorage.getItem('user')!=null){
+        $scope.user=JSON.parse(localStorage.getItem('user'));
+        $scope.user.userpassword='';
+    }else{
+        $scope.user={
+            username:'',
+            userpassword:'',
+            userimei:'111',
+            usermobile:'000000',
+            userremember:false
+        };
+    }
     $scope.doLogin=function(){
-        $rootScope.title='掌上营销';
+        $scope.user.userpassword = md5Service.hex_md5($scope.user.userpassword);
+        if($scope.user.userremember){
+            localStorage.setItem("user",JSON.stringify($scope.user));
+        }else{
+            localStorage.removeItem("user");
+        }
         communicateService.communicateTest('loginService','action',JSON.stringify($scope.user)).success(function(msg){
             if(msg.isSuccess=='1'){
                 //TODO 登录成功
+                $rootScope.title=constantService.HOME;
                 $rootScope.cache=msg.data;
                 $state.go('index.home.show');
             }else{
@@ -41,7 +51,7 @@ app.controller('footerController',['$scope','$state','$rootScope','constantServi
             $rootScope.title=constantService.HOME;
         }else if(text=='report'){
             $rootScope.title=constantService.REPORT;
-        }else if(text=='quota_bak'){
+        }else if(text=='quota'){
             $rootScope.title=constantService.QUOTA;
         }
         $state.go(target);
@@ -64,7 +74,7 @@ app.controller('homeController',function($scope,$rootScope){
         {
             "footer_icon":"img/footer_quota.png",
             "footer_icon_active":"img/footer_quota_active.png",
-            "footer_code":"quota_bak",
+            "footer_code":"quota",
             "footer_text":"指标",
             "footer_selected":0
         },

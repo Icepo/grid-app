@@ -14,7 +14,7 @@ app.controller('quotaController',['$scope','$state','$rootScope','communicateSer
         paramsService.quotaTitle=menu.menuName;
         communicateService.communicateTest('appService','action','quotaTotalData').success(function(data){
             paramsService.quotaTotalData = data;
-            $state.go('quota.chart.linechart');
+            $state.go('quota_bak.chart.linechart');
         });
         //TODO 点击失败的处理
     }
@@ -32,9 +32,9 @@ app.controller('quotaTopController',['$scope','$state','$rootScope','constantSer
     $scope.selectNav=function(index){
         $scope.selectedNav=index;
         if(index==0){
-            $state.go('quota.chart.columnchart');
+            $state.go('quota_bak.chart.columnchart');
         }else {
-            $state.go('quota.chart.list');
+            $state.go('quota_bak.chart.list');
         }
     };
     if($scope.selectedNav==undefined){

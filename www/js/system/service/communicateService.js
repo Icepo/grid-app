@@ -4,7 +4,7 @@
 app.factory('communicateService',['constantService','encryptService','$http',function(constantService,encryptService,$http){
     var transferr=function(serviceName,methodName,data){
         var body=JSON.parse(data);
-        var text={
+        var json={
             "mobileParam":{
                 "serviceName":serviceName,
                 "methodName":methodName
@@ -36,7 +36,7 @@ app.factory('communicateService',['constantService','encryptService','$http',fun
 
             }
         };
-        return JSON.stringify(text);
+        return JSON.stringify(json);
     };
     /*
     serviceName:需要调用的服务名称
@@ -60,8 +60,17 @@ app.factory('communicateService',['constantService','encryptService','$http',fun
         }
         return json;
     };
+    //封装业务参数格式如下
+    var getContent = function(targetService,targetMethod,content){
+        return {
+            "targetService":targetService,
+            "targetMethod":targetMethod,
+            "content":content
+        }
+    };
     return {
         'communicate':communicate,
-        'communicateTest':communicateTest
+        'communicateTest':communicateTest,
+        'getContent':getContent
     }
 }]);
