@@ -2,14 +2,17 @@
  * Created by liuzhangjun on 2015-6-8.
  */
 app.factory('communicateService',['constantService','encryptService','$http',function(constantService,encryptService,$http){
-    var transferr=function(serviceName,methodName,data){
-        var body=JSON.parse(data);
+    var transferr=function(targetService,targetMethod,data){
         var json={
             "mobileParam":{
-                "serviceName":serviceName,
-                "methodName":methodName
+                "serviceName":"appService",
+                "methodName":"action"
             },
-            "mobileBody":body,
+            "mobileBody":{
+                "targetService":targetService,
+                "targetMethod":targetMethod,
+                "content":data
+            },
             "mobileHead":{
                 "client":{
                     "applicationId":"mms",
@@ -60,17 +63,8 @@ app.factory('communicateService',['constantService','encryptService','$http',fun
         }
         return json;
     };
-    //封装业务参数格式如下
-    var getContent = function(targetService,targetMethod,content){
-        return {
-            "targetService":targetService,
-            "targetMethod":targetMethod,
-            "content":content
-        }
-    };
     return {
         'communicate':communicate,
-        'communicateTest':communicateTest,
-        'getContent':getContent
+        'communicateTest':communicateTest
     }
 }]);

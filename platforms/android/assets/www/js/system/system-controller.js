@@ -18,7 +18,7 @@ app.controller('loginController',['$scope','$state','$rootScope','communicateSer
         }else{
             localStorage.removeItem("user");
         }
-        communicateService.communicateTest('loginService','action',JSON.stringify($scope.user)).success(function(msg){
+        communicateService.communicate('appService','action',JSON.stringify($scope.user)).success(function(msg){
             if(msg.isSuccess=='1'){
                 //TODO 登录成功
                 $rootScope.title=constantService.HOME;
@@ -26,6 +26,7 @@ app.controller('loginController',['$scope','$state','$rootScope','communicateSer
                 $state.go('index.home.show');
             }else{
                 //TODO 登录失败
+                console.log(msg);
 //                $state.go('index.home_bak.show'); //FIXME 测试用
             }
         });
@@ -51,7 +52,7 @@ app.controller('footerController',['$scope','$state','$rootScope','constantServi
             $rootScope.title=constantService.HOME;
         }else if(text=='report'){
             $rootScope.title=constantService.REPORT;
-        }else if(text=='quota_bak'){
+        }else if(text=='quota'){
             $rootScope.title=constantService.QUOTA;
         }
         $state.go(target);
@@ -74,7 +75,7 @@ app.controller('homeController',function($scope,$rootScope){
         {
             "footer_icon":"img/footer_quota.png",
             "footer_icon_active":"img/footer_quota_active.png",
-            "footer_code":"quota_bak",
+            "footer_code":"quota",
             "footer_text":"指标",
             "footer_selected":0
         },

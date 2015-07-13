@@ -18,7 +18,7 @@ app.controller('loginController',['$scope','$state','$rootScope','communicateSer
         }else{
             localStorage.removeItem("user");
         }
-        communicateService.communicateTest('loginService','action',JSON.stringify($scope.user)).success(function(msg){
+        communicateService.communicate('loginService','login',JSON.stringify($scope.user)).success(function(msg){
             if(msg.isSuccess=='1'){
                 //TODO 登录成功
                 $rootScope.title=constantService.HOME;
@@ -26,6 +26,7 @@ app.controller('loginController',['$scope','$state','$rootScope','communicateSer
                 $state.go('index.home.show');
             }else{
                 //TODO 登录失败
+                console.log(msg);
 //                $state.go('index.home_bak.show'); //FIXME 测试用
             }
         });

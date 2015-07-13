@@ -6,7 +6,7 @@
         <div class="col-30" ng-click="orderData('sum')">当月累计值<img ng-src={{imgUrl.sum}}></div>
     </div>
     <div  id="data_list_detail">
-        <div ng-repeat="d in data.data" class="row text-center">
+        <div ng-repeat="d in data.data" class="row text-center" ng-click="methodName()">
             <div class="col-30">{{d.text}}</div>
             <div class="col-20">{{d.value}}</div>
             <div class="col-20">{{d.last}}</div>

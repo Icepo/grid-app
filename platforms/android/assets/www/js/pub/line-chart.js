@@ -60,18 +60,18 @@ function drawTextX(ctx,bgPosition,words,size,offSet){
     var startPoint=new Point(bgPosition.basePoint.x-offSet.x,bgPosition.basePoint.y+bgPosition.height-offSet.y);
     var lineSpace=bgPosition.width/(words.length-1);
     //3倍字体绘制x轴起点
-    ctx.font=(size*3)+'px 微软雅黑';
+    ctx.font=(size*2)+'px 微软雅黑';
     ctx.fillStyle='#ff8000';
     ctx.fillText(words[0],startPoint.x,startPoint.y);
     startPoint.x=startPoint.x+lineSpace;
     //绘制中间的部分
-    ctx.font=size*1.2+'px 微软雅黑';
-    ctx.fillStyle='#c7c7cf';
+    ctx.font=size+'px 微软雅黑';
+    ctx.fillStyle='#8d8d8d';
     for(var i=1;i<words.length-1;i++){
         ctx.fillText(words[i],startPoint.x,startPoint.y);
         startPoint.x=startPoint.x+lineSpace;
     }
-    ctx.font=(size*3)+'px 微软雅黑';
+    ctx.font=(size*2)+'px 微软雅黑';
     ctx.fillStyle='#419ADC';
     ctx.fillText(words[words.length-1],startPoint.x,startPoint.y);
 }
@@ -138,7 +138,7 @@ function drawLineChart(data,$state,communicateService,paramsService){
     var canvas=document.getElementById('canvas');
     canvas.width=app.clientWidth;
     canvas.height=app.clientHeight*data.heightPercent;
-    var bgMargin=new BgMargin(0.06,0.10,0.16,0.072);
+    var bgMargin=new BgMargin(0.10,0.10,0.16,0.072);
     var bgPosition=getBgPosition(canvas.width,canvas.height,bgMargin);
     var ctx=canvas.getContext('2d');
     var dottedSpace=2;
@@ -147,7 +147,7 @@ function drawLineChart(data,$state,communicateService,paramsService){
     var parallelLineNum=(data.yInfo.length-1)*2;
     drawParallel(ctx,bgPosition,parallelLineNum,'#F0F0F0');
     drawTextY(ctx,bgPosition,data.yInfo,12,{x:36,y:-4});
-    drawTextX(ctx,bgPosition,data.xInfo,6,{x:20,y:-24});
+    drawTextX(ctx,bgPosition,data.xInfo,10,{x:20,y:-24});
     var dataPoints=drawDataLine(ctx,bgPosition,data,arrayY);    //绘制数据折线 并且获取中间生成的折点坐标数组
     drawBoldPoint(ctx,dataPoints,4,7);
     //增加点击事件
@@ -167,7 +167,7 @@ function drawLineChart(data,$state,communicateService,paramsService){
                 //绘图方法里面修改state 这个做法增加耦合 不好 TODO
                 communicateService.communicateTest('appService','action','quotaDataList').success(function(data){
                     paramsService.quotaDataList=data;
-                    $state.go('quota_bak.chart.columnchart');
+                    $state.go('quota.chart.columnchart');
                 });
 
             }

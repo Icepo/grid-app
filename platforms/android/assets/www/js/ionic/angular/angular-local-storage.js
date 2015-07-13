@@ -111,7 +111,7 @@ angularLocalStorage.provider('localStorageService', function() {
         // is available, but trying to call .setItem throws an exception.
         //
         // "QUOTA_EXCEEDED_ERR: DOM Exception 22: An attempt was made to add something to storage
-        // that exceeded the quota_bak."
+        // that exceeded the quota."
         var key = deriveQualifiedKey('__' + Math.round(Math.random() * 1e7));
         if (supported) {
           webStorage = $window[storageType];

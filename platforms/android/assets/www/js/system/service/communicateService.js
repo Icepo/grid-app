@@ -60,8 +60,17 @@ app.factory('communicateService',['constantService','encryptService','$http',fun
         }
         return json;
     };
+    //封装业务参数格式如下
+    var getContent = function(targetService,targetMethod,content){
+        return {
+            "targetService":targetService,
+            "targetMethod":targetMethod,
+            "content":content
+        }
+    };
     return {
         'communicate':communicate,
-        'communicateTest':communicateTest
+        'communicateTest':communicateTest,
+        'getContent':getContent
     }
 }]);

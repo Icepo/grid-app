@@ -96,8 +96,8 @@
                     }
                 }
             })
-            .state('index.quota_bak',{
-                url:'/quota_bak',
+            .state('index.quota',{
+                url:'/quota',
                 abstract:true,
                 views:{
                     'header':{
@@ -112,7 +112,7 @@
                     }
                 }
             })
-            .state('index.quota_bak.show',{
+            .state('index.quota.show',{
                 url:'/show',
                 views:{
                     'quota_catalog':{
