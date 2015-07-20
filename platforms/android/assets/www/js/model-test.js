@@ -4,7 +4,4 @@
 var app=angular.module('app',[]);
 app.controller('loginController',function($scope){
     $scope.user={'username':'admin','password':'123456'};
-    $scope.doLogin=function(){
-        console.log($scope.user);
-    };
 });

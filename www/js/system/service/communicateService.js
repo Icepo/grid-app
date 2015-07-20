@@ -49,22 +49,23 @@ app.factory('communicateService',['constantService','encryptService','$http',fun
     var communicate = function(serviceName,methodName,data){
         return $http.post(constantService.URL,encryptService.encrypt(transferr(serviceName,methodName,data)));
     };
+    //加载离线数据
+    var communicateLocal = function(jsonFileName){
+        return $http.get('json/'+jsonFileName);
+    };
     //离线测试数据
     var communicateTest = function(serviceName,methodName,data){
         var json;
-        if(serviceName=='loginService'){
+        if(serviceName=='loginService') {
             json = $http.get('json/cache.json');
-        }else if(serviceName=='appService'){
-            if(data=='quotaTotalData'){
-                json = $http.get('json/quotaTotalData.json');
-            }else if(data=='quotaDataList'){
-                json = $http.get('json/quotaDataList.json');
-            }
+        }else if(methodName=='queryIndexDataList'){
+            json = $http.get('json/quotaTotalData.json');
         }
-        return json;
-    };
+      return json;
+   };
+
     return {
         'communicate':communicate,
-        'communicateTest':communicateTest
+        'communicateLocal':communicateLocal
     }
 }]);

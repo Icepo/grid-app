@@ -31,14 +31,54 @@ app.config(['$stateProvider',function($stateProvider){
                     controller:'reportController'
                 },
                 'report_detail_top_option':{
-                    templateUrl:'report_detail_top_option.html'
+                    templateUrl:'report_detail_top_option.html',
+                    controller:'reportListController'
                 },
                 'report_detail_list':{
                     templateUrl:'report_detail_list.html',
-                    controller:'reportList'
+                    controller:'reportListController'
                 },
                 'report_options_select':{
-                    templateUrl:'report_options.html'
+                    templateUrl:'report_options.html',
+                    controller:'reportListController'
+                }
+            }
+        })
+        .state('report.detail.keyIndexRanking',{
+            url:'/keyIndexRanking',
+            views:{
+                'report_detail_top_header':{
+                    templateUrl:'report_detail_top_header_keyIndexRanking.html',
+                    controller:'reportKeyIndexRankingController'
+                },
+                'report_detail_top_option':{
+                    templateUrl:'report_detail_top_option_keyIndexRanking.html',
+                    controller:'reportListController'
+                },
+                'report_detail_list':{
+                    templateUrl:'report_detail_list.html',
+                    controller:'reportKeyIndexRankingController'
+                }
+            }
+        })
+        .state('report.detail.gridJifenDay',{
+            url:'/list',
+            views:{
+                'report_detail_top_header':{
+                    templateUrl:'report_detail_top_header.html',
+                    controller:'reportController'
+                },
+                'report_detail_top_option':{
+                    templateUrl:'report_detail_top_option.html',
+                    controller:'reportListController'
+                },
+                'report_detail_list':{
+                    templateUrl:'report_detail_list_gridJifenDay.html',
+                    controller:'reportGridJifenDayController'
+                },
+                'report_options_select':{
+                    templateUrl:'report_options.html',
+                    controller:'reportListController'
                 }
             }
         })

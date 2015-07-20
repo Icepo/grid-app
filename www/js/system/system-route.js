@@ -7,7 +7,8 @@
                 url:'/login',
                 views:{
                     'app':{
-                        templateUrl:'login.html'
+                        templateUrl:'login.html',
+                        controller:'loginController'
                     }
                 }
             })
@@ -39,7 +40,8 @@
                 url:'/show',
                 views:{
                     'radio_nav':{
-                        templateUrl:'radio_nav.html'
+                        templateUrl:'radio_nav.html',
+                        controller:'continuedController'
                     },
                     'bar_nav':{
                         template:'<div id="bar_nav">&nbsp;</div>'
@@ -53,7 +55,8 @@
                         controller:'quotaController'
                     },
                     'report_nav':{
-                        templateUrl:'report_nav.html'
+                        templateUrl:'report_nav.html',
+                        controller:'reportController'
                     }
                 }
             })
@@ -123,7 +126,7 @@
                     }
                 }
             })
-            .state('index.more.show',{
+            .state('more',{
                 url:'/test',
                 views:{
                     'app':{

@@ -1,0 +1,30 @@
+[
+    {
+        "footer_icon":"img/footer_home.png",
+        "footer_icon_active":"img/footer_home_active.png",
+        "footer_code":"home",
+        "footer_text":"首页",
+        "footer_selected":1
+    },
+    {
+        "footer_icon":"img/footer_quota.png",
+        "footer_icon_active":"img/footer_quota_active.png",
+        "footer_code":"quota",
+        "footer_text":"指标",
+        "footer_selected":0
+    },
+    {
+        "footer_icon":"img/footer_report.png",
+        "footer_icon_active":"img/footer_report_active.png",
+        "footer_code":"report",
+        "footer_text":"报表",
+        "footer_selected":0
+    },
+    {
+        "footer_icon":"img/footer_more.png",
+        "footer_icon_active":"img/footer_more_active.png",
+        "footer_code":"more",
+        "footer_text":"更多",
+        "footer_selected":0
+    }
+]

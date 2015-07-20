@@ -4,15 +4,15 @@
 </div>
 <div id="content" ng-controller="testController">
     设备上的cordova版本
-    <div id="device_cordova"></div>
+    <div id="device_cordova">{{device.cordova}}</div>
     设备名称
-    <div id="device_model"></div>
+    <div id="device_model">{{device.model}}</div>
     设备的唯一识别码
-    <div id="device_uuid"></div>
+    <div id="device_uuid">{{device.uuid}}</div>
     设备版本号
-    <div id="device_version"></div>
+    <div id="device_version">{{device.version}}</div>
     设备IMIE号
-    <div id="device_imei"></div>
+    <div id="device_imei">{{device.imei}}</div>
     打电话
     <div>
         <a href="tel:110">拨打110</a>
@@ -23,5 +23,8 @@
     </div>
     <!--<div ng-controller="MyCtrl"></div>-->
     <button ng-click="show()">clickButton</button>
+    <button ng-click="setScreenOrientation(0)">setScreenOrietation</button>
+    设备状态
+    <div>{{screenOrientation}}</div>
 </div>
 

@@ -16,8 +16,8 @@ body{
 @media only screen and (max-width: 300px) { body{ font-size: 12px; }}
 /*跳转动画*/
 .page-slide-left-right{
-    transition:1s all;
-    -webkit-transition:1s all;
+    transition:0.3s all;
+    -webkit-transition:0.3s all;
     position: absolute;
     width: 100%;
     -webkit-overflow-scrolling:touch;
@@ -58,6 +58,19 @@ body{
 #app{
     width: 100%;
     height: 100%;
+}
+#messageContext{
+    width: 100%;
+    margin-top: 80%;
+    text-align: center;
+}
+#messageBox{
+    width: 30%;
+    background-color: lightgray;
+    border-radius: 6px;
+    text-align: center;
+    margin-left: 35%;
+    color: #ff8000;
 }
 .sub_title_icon{
     width: 2%;
@@ -142,6 +155,18 @@ body{
 }
 .z_999{
     z-index: 999;
+}
+#show-msg{
+    position: fixed;
+    top: 50%;
+    height: 50%;
+    text-align: center;
+}
+#show-msg-content{
+    border-radius: 6px;
+    background-color: lightgray;
+    opacity: 0.8;
+    width: 40%;
 }
 /* 登录页面 */
 #login{
@@ -234,7 +259,7 @@ body{
 #title_font{
     font-family: '幼圆';
     font-weight: bold;
-    font-size: 120%;
+    font-size: 80%;
     position: relative;
     top:12px;
 }
@@ -293,6 +318,16 @@ body{
     font-size: 160%;
     margin-left: 5px;
 }
+.rect_inner_1_offset{
+    position: relative;
+    top:10px;
+}
+.rect_inner_2_offset{
+    top:15px;
+}
+.rect_inner_3_offset{
+    top:10px;
+}
 #rect_div_1{
     background-color:#76d6b8;
 }
@@ -325,6 +360,9 @@ body{
 .report_nav_icon{
     width:6%;
     vertical-align: middle;
+}
+.report_list.activated{
+    background-color: #cbcbcb;
 }
 /*报表目录 报表目录的样式复用了主页下面的报表列表*/
 #report_catalog{
@@ -513,21 +551,27 @@ body{
     background-color: #FBF6F3;
 }
 /*报表明细*/
-#report_options{
+.report_options{
     background-color: #ffffff;
     width: 100%;
     height: 36px;
     z-index: 9;
+    font-size: 60%;
+    display: -webkit-box;
 }
 .report_option{
     display: block;
-    width: 50%;
+    -webkit-box-flex:1;
     height: 30px;
     float: left;
     color: #818181;
     font-weight: bold;
     position: relative;
     top:6px;
+}
+.report_option select{
+    border:0;
+    color: #818181;
 }
 .report_option img{
     width: 15px;
@@ -538,15 +582,12 @@ body{
     height: 1980px;
     overflow:auto;
 }
-#report_table{
+.report_table{
     min-width: 100%;
     position: relative;
     top:74px;
-}
-.fixedHeader{
-    position: relative;
-    top:expression(this.offsetParent.scrollTop);
-    z-index: 9;
+    font-size: 60%;
+    overflow: scroll;
 }
 .fixedCell{
     position: relative;
@@ -554,37 +595,47 @@ body{
     left: expression(this.parentElement.offsetParent.scrollLeft);
     z-index:9;
 }
-.fixedDataCol{
-    position: relative;
-    left: expression(this.parentElement.offsetParent.parentElement.scrollLeft);
-    z-index: 9;
-}
 #report_detail_list .td{
     border-right: 1px dotted #c3c3c3;
 }
-#report_detail_list tr:nth-child(odd):not(#report_table_title){
+#report_detail_list tr:nth-child(odd):not(.report_table_title){
     background-color: #fbf6f3;
 }
-#report_table td{
+.report_table td{
     white-space: nowrap;
 }
-#report_table_title{
+.report_table_title{
     background-color: #ffa507;
     color: #ffffff;
     height: 36px;
     font-weight: bold;
 }
-#report_table_title td{
+.report_table_title td{
     vertical-align: middle;
     padding: 4px;
 }
 #report_options_detail{
     background-color: #ffffff;
     font-family: '微软雅黑';
+    font-size: 60%;
     z-index: 10;
 }
 #report_options_detail_1{
     background-color: #e5e5e5;
+    height:200px;
+    overflow: scroll;
+}
+#report_option_col_1 li{
+    list-style: none;
+}
+#report_option_col_2 li{
+    list-style: none;
+}
+#report_option_col_3 li{
+    list-style: none;
+}
+ul li{
+    list-style: none;
 }
 #report_options_detail .option_active{
     color:#ff8000;
@@ -592,6 +643,12 @@ body{
 }
 #report_options_detail_2{
     background-color: #f3f3f3;
+    height:200px;
+    overflow: scroll;
+}
+#report_options_detail_3{
+    height:200px;
+    overflow: scroll;
 }
 #mask{
     display: block;

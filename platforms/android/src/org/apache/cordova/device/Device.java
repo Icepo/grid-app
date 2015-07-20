@@ -28,7 +28,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 
@@ -78,6 +80,15 @@ public class Device extends CordovaPlugin {
             r.put("manufacturer", this.getManufacturer());
             r.put("imei", this.getImei());
             callbackContext.success(r);
+        }else if("setOrientation".equals(action)){
+            final Integer param = args.getInt(0);
+            Activity activity = cordova.getActivity();
+            if (param== ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE){
+                activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+            }else{
+                activity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
+            }
+            callbackContext.success();
         }
         else {
             return false;

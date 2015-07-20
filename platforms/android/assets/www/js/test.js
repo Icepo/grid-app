@@ -1,9 +1,11 @@
 window.onload=function(){
     //注册初始事件
-    document.addEventListener('deviceready',onDeviceReady,false);
+    document.addEventListener('deviceready',function(){
+        showDevice();
+    },false);
 };
-function onDeviceReady(){
-    alert('deviceReady');
+/*function onDeviceReady(){
+ *//*   alert('deviceReady');
     //应用进入后台时触发
     document.addEventListener('pause',onPause,false);
     //应用从后台恢复时触发
@@ -15,11 +17,11 @@ function onDeviceReady(){
     //降低音量按键
     document.addEventListener('volumedownbutton',onVolumeDownButton,false);
     //增加音量按键
-    document.addEventListener('volumeupbutton',onVolumeUpButton,false);
+    document.addEventListener('volumeupbutton',onVolumeUpButton,false);*//*
     //显示设备信息
-    showDevice();
-}
-function onPause(){
+
+}*/
+/*function onPause(){
     alert('pause');
 }
 function onResume(){
@@ -36,11 +38,12 @@ function onVolumeDownButton(){
 }
 function onVolumeUpButton(){
     alert('volumeUpButton');
-}
+}*/
 function showDevice(){
-    document.getElementById('device_cordova').innerHTML=device.cordova;
-    document.getElementById('device_model').innerHTML=device.model;
-    document.getElementById('device_uuid').innerHTML=device.uuid;
-    document.getElementById('device_version').innerHTML=device.version;
-    document.getElementById('device_imei').innerHTML=device.imei;
+//    alert(JSON.stringify(device));
+//    document.getElementById('device_cordova').innerHTML=device.cordova+111;
+//    document.getElementById('device_model').innerHTML=device.model+222;
+//    document.getElementById('device_uuid').innerHTML=device.uuid+333;
+//    document.getElementById('device_version').innerHTML=device.version+444;
+//    document.getElementById('device_imei').innerHTML=device.imei+555;
 }

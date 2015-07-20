@@ -14,3 +14,10 @@ app.directive('selector',function(){
         }
     }
 });
+app.directive('reportInstance',function(){
+    return{
+        restrict:'E',
+        replace:true,
+        templateUrl:'report/report-instance.html'
+    }
+});

@@ -77,5 +77,13 @@ Device.prototype.getInfo = function(successCallback, errorCallback) {
     argscheck.checkArgs('fF', 'Device.getInfo', arguments);
     exec(successCallback, errorCallback, "Device", "getDeviceInfo", []);
 };
+Device.prototype.setHorizontal = function(successCallback, errorCallback) {
+    argscheck.checkArgs('fF', 'Device.setHorizontal', arguments);
+    exec(successCallback, errorCallback, "Device", "setOrientation", [0]);
+};
+Device.prototype.setVertical = function(successCallback, errorCallback) {
+    argscheck.checkArgs('fF', 'Device.Vertical', arguments);
+    exec(successCallback, errorCallback, "Device", "setOrientation", [1]);
+};
 
 module.exports = new Device();

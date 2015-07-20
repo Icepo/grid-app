@@ -5,5 +5,7 @@
     "data":["5207","5647","6158","6569","6980","7516","9000"],
     "totalSub":4000,
     "currentPoint":7,
-    "heightPercent":0.7
+    "heightPercent":0.7,
+    "indexCode":"KPI127",
+    "quotaName":"宽带发展日指标"
 }

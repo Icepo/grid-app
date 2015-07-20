@@ -166,7 +166,7 @@
                                 {
                                     "color": "",
                                     "createDate": "",
-                                    "imgUrl": "img/report_day.png",
+                                    "imgUrl": "img/quota_day.png",
                                     "menuCatalogId": "7",
                                     "menuCode": "x",
                                     "menuDesc": "",
@@ -180,7 +180,7 @@
                                 {
                                     "color": "",
                                     "createDate": "",
-                                    "imgUrl": "img/report_day.png",
+                                    "imgUrl": "img/quota_day.png",
                                     "menuCatalogId": "7",
                                     "menuCode": "x",
                                     "menuDesc": "",
@@ -196,7 +196,7 @@
                                 {
                                     "color": "",
                                     "createDate": "",
-                                    "imgUrl": "img/report_day.png",
+                                    "imgUrl": "img/quota_day.png",
                                     "menuCatalogId": "7",
                                     "menuCode": "x",
                                     "menuDesc": "",
@@ -210,7 +210,7 @@
                                 {
                                     "color": "",
                                     "createDate": "",
-                                    "imgUrl": "img/report_day.png",
+                                    "imgUrl": "img/quota_day.png",
                                     "menuCatalogId": "7",
                                     "menuCode": "x",
                                     "menuDesc": "",
@@ -226,7 +226,7 @@
                                 {
                                     "color": "",
                                     "createDate": "",
-                                    "imgUrl": "img/report_day.png",
+                                    "imgUrl": "img/quota_day.png",
                                     "menuCatalogId": "7",
                                     "menuCode": "x",
                                     "menuDesc": "",
@@ -240,7 +240,7 @@
                                 {
                                     "color": "",
                                     "createDate": "",
-                                    "imgUrl": "img/report_day.png",
+                                    "imgUrl": "img/quota_day.png",
                                     "menuCatalogId": "7",
                                     "menuCode": "x",
                                     "menuDesc": "",
@@ -473,27 +473,27 @@
                             {
                                 "menuId":"1",
                                 "menuName":"网格积分月报",
-                                "imgUrl":"img/report_month.png"
+                                "imgUrl":"img/quota_month.png"
                             },
                             {
                                 "menuId":"2",
                                 "menuName":"三项业务发展到达量佣金统计",
-                                "imgUrl":"img/report_month.png"
+                                "imgUrl":"img/quota_month.png"
                             },
                             {
                                 "menuId":"3",
                                 "menuName":"包年续约率承包奖励佣金统计",
-                                "imgUrl":"img/report_month.png"
+                                "imgUrl":"img/quota_month.png"
                             },
                             {
                                 "menuId":"4",
                                 "menuName":"商务网格业务发展月报",
-                                "imgUrl":"img/report_month.png"
+                                "imgUrl":"img/quota_month.png"
                             },
                             {
                                 "menuId":"5",
                                 "menuName":"商务网格业务收入月报",
-                                "imgUrl":"img/report_month.png"
+                                "imgUrl":"img/quota_month.png"
                             }
                         ],
                         "orderNo": "1",
@@ -512,17 +512,17 @@
                             {
                                 "menuId":"1",
                                 "menuName":"关键指标排名日报",
-                                "imgUrl":"img/report_day.png"
+                                "imgUrl":"img/quota_day.png"
                             },
                             {
                                 "menuId":"1",
                                 "menuName":"网格积分日报",
-                                "imgUrl":"img/report_day.png"
+                                "imgUrl":"img/quota_day.png"
                             },
                             {
                                 "menuId":"1",
                                 "menuName":"商务网格业务发展日报",
-                                "imgUrl":"img/report_day.png"
+                                "imgUrl":"img/quota_day.png"
                             }
                         ],
                         "orderNo": "2",

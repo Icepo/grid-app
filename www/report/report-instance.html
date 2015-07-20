@@ -1,0 +1,110 @@
+<div>
+    <script type="text/ng-template" id="report_detail_top_header_keyIndexRanking.html">
+        <div class="sub_title border_bottom text-center">
+            <img class="img_left" ng-src="img/title_left.png" ng-click="back()">
+            <span id="title_font">{{reportTitle}}</span>
+            <img class="img_right" ng-src="img/search.png" ng-click="queryReport()">
+        </div>
+    </script>
+    <script type="text/ng-template" id="report_detail_top_option_keyIndexRanking.html">
+        <div class="text-center border_bottom report_options">
+            <span class="report_option text-center">
+                <select id="keyIndexRanking-select-rankRange">
+                    <option>---请选择---</option>
+                    <option value="1">分公司排名</option>
+                    <option value="2">分分局排名</option>
+                    <option value="3">网格排名</option>
+                </select>
+            </span>
+            <span class="report_option text-center">
+                {{currentDateStr}}&nbsp;<img ng-src="img/triangle_down.png">
+            </span>
+            <span class="report_option text-center">
+                <select id="keyIndexRanking-select-rankKpi">
+                    <option>---请选择---</option>
+                    <option value="2001">非计时宽带发展</option>
+                    <option value="2002">趸交到期续约率</option>
+                    <option value="2003">日收入</option>
+                </select>
+            </span>
+        </div>
+    </script>
+    <script type="text/ng-template" id="report_detail_list_gridJifenDay.html">
+        <table class="text-center report_table" id="report_table_gridJifenDay">
+            <thead>
+            <tr class="border_bottom report_table_title">
+                <td ng-repeat="title in report_titles">&nbsp;{{title}}&nbsp;</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in reportItems">
+                <td>{{item.dutyName}}</td>
+                <td>{{item.fenjuName}}</td>
+                <td>{{item.qujuName}}</td>
+                <td>{{item.totalScore}}</td>
+                <td>{{item.totalScoreRank}}</td>
+                <td>{{item.fjsCurAccDev}}</td>
+                <td>{{item.fjsCurAccDevScore}}</td>
+                <td>{{item.djnDaoqi}}</td>
+                <td>{{item.djlDaoqi}}</td>
+                <td>{{item.djnXuyue}}</td>
+                <td>{{item.djlXuyue}}</td>
+                <td>{{item.djnLastXuye}}</td>
+                <td>{{item.djnLastWx}}</td>
+                <td>{{item.djJdXuyueRateAve}}</td>
+                <td>{{item.djCurXuyueRate}}</td>
+                <td>{{item.djCurXuyueRateScore}}</td>
+                <td>{{item.curXuyueScoreTsAdd}}</td>
+                <td>{{item.dghfzCurAccDev}}</td>
+                <td>{{item.dghfzCurAccDevScore}}</td>
+                <td>{{item.byzhyCurAccDev}}</td>
+                <td>{{item.byzhyCurAccDevScore}}</td>
+                <td>{{item.chyAccDev}}</td>
+                <td>{{item.byzhyCurAccDevAddScore}}</td>
+                <td>{{item.kdzzfzCurAccDev}}</td>
+                <td>{{item.kdzzfzCurAccDevScore}}</td>
+            </tr>
+            </tbody>
+        </table>
+        <div id="mask" ng-show="optionShow" ng-click="changeDisplay()"></div>
+    </script>
+    <script type="text/ng-template" id="report_detail_list_swwgBusinessDevelopDay.html">
+        <table class="text-center report_table" id="report_table_swwgBusinessDevelopDay">
+            <thead>
+            <tr class="border_bottom report_table_title">
+                <td ng-repeat="title in report_titles">&nbsp;{{title}}&nbsp;</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in reportItems">
+                <td>{{item.dutyName}}</td>
+                <td>{{item.fenjuName}}</td>
+                <td>{{item.qujuName}}</td>
+                <td>{{item.totalScore}}</td>
+                <td>{{item.totalScoreRank}}</td>
+                <td>{{item.fjsCurAccDev}}</td>
+                <td>{{item.fjsCurAccDevScore}}</td>
+                <td>{{item.djnDaoqi}}</td>
+                <td>{{item.djlDaoqi}}</td>
+                <td>{{item.djnXuyue}}</td>
+                <td>{{item.djlXuyue}}</td>
+                <td>{{item.djnLastXuye}}</td>
+                <td>{{item.djnLastWx}}</td>
+                <td>{{item.djJdXuyueRateAve}}</td>
+                <td>{{item.djCurXuyueRate}}</td>
+                <td>{{item.djCurXuyueRateScore}}</td>
+                <td>{{item.curXuyueScoreTsAdd}}</td>
+                <td>{{item.dghfzCurAccDev}}</td>
+                <td>{{item.dghfzCurAccDevScore}}</td>
+                <td>{{item.byzhyCurAccDev}}</td>
+                <td>{{item.byzhyCurAccDevScore}}</td>
+                <td>{{item.chyAccDev}}</td>
+                <td>{{item.byzhyCurAccDevAddScore}}</td>
+                <td>{{item.kdzzfzCurAccDev}}</td>
+                <td>{{item.kdzzfzCurAccDevScore}}</td>
+            </tr>
+            </tbody>
+        </table>
+        <div id="mask" ng-show="optionShow" ng-click="changeDisplay()"></div>
+    </script>
+</div>

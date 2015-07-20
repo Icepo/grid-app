@@ -1,0 +1,29 @@
+<div>
+    <script type="text/ng-template" id="login-page.html">
+        <div id="login">
+            <div id="top">
+                <div id="top_content">
+                    <img ng-src="img/logo.png">
+                    <div id="top_title">北京网格营销</div>
+                </div>
+            </div>
+            <div id="bottom">
+                <div id="login_label_name">用户名&nbsp;&nbsp;</div>
+                <div class="list list-inset login_input">
+                    <label class="item item-input">
+                        <input type="text" ng-model="user.username">
+                    </label>
+                </div>
+                <div id="login_label_pwd">密&nbsp;&nbsp;&nbsp;&nbsp;码&nbsp;&nbsp;</div>
+                <div class="list list-inset login_input">
+                    <label class="item item-input">
+                        <input type="password" ng-model="user.userpassword">
+                    </label>
+                </div>
+                <button id="login_button" class="button button-small" ng-click="doLogin()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;登录&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                <input id="login_checkbox" type="checkbox" ng-checked="user.userremember" ng-click="user.userremember=!user.userremember"><span id="remember_me">记住用户</span>
+            </div>
+        </div>
+    </script>
+</div>

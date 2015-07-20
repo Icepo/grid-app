@@ -13,10 +13,6 @@
                             "count": 1
                         },
                         {
-                            "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
-                            "count": 1
-                        },
-                        {
                             "xml": "<feature name=\"Contacts\"><param name=\"android-package\" value=\"org.apache.cordova.contacts.ContactManager\" /></feature>",
                             "count": 1
                         },
@@ -26,6 +22,10 @@
                         },
                         {
                             "xml": "<feature name=\"DatePickerPlugin\"><param name=\"android-package\" value=\"com.plugin.datepicker.DatePickerPlugin\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Device\"><param name=\"android-package\" value=\"org.apache.cordova.device.Device\" /></feature>",
                             "count": 1
                         }
                     ]
@@ -55,9 +55,6 @@
         "cordova-plugin-whitelist": {
             "PACKAGE_NAME": "com.cattsoft.fast.grid.mobile.app"
         },
-        "cordova-plugin-device": {
-            "PACKAGE_NAME": "com.cattsoft.fast.grid.mobile.app"
-        },
         "cordova-plugin-contacts": {
             "PACKAGE_NAME": "com.cattsoft.fast.grid.mobile.app"
         },
@@ -65,6 +62,9 @@
             "PACKAGE_NAME": "com.cattsoft.fast.grid.mobile.app"
         },
         "com.plugin.datepicker": {
+            "PACKAGE_NAME": "com.cattsoft.fast.grid.mobile.app"
+        },
+        "cordova-plugin-device": {
             "PACKAGE_NAME": "com.cattsoft.fast.grid.mobile.app"
         }
     },

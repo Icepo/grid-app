@@ -8,10 +8,10 @@
         <br><br><br>
     </script>
     <script type="text/ng-template" id="quota_nav.html">
-        <div id="quota_nav">
+        <div id="quota_nav" ng-controller="quotaNavController">
             <div class="row hr_style" ng-repeat="menuArray in quotaNav">
-                <div class="col" ng-repeat="menu in menuArray"  ng-click="quotaDetail(menu)">
-                    <img ng-src="{{menu.imgUrl}}" class="quota_nav_icon">&nbsp;{{menu.menuName}}
+                <div class="col" ng-repeat="menu in menuArray"  ng-click="quotaDetail(menu.menuName)">
+                    <img name="{{menu.menuName}}_img_m" class="quota_nav_icon ng-hide" ng-src="img/report_month.png"><img name="{{menu.menuName}}_img_d" class="quota_nav_icon ng-hide" ng-src="img/report_day.png">&nbsp;<css name="{{menu.menuName}}">{{menu.menuName}}</css>
                 </div>
             </div>
         </div>
@@ -19,7 +19,7 @@
     <script type="text/ng-template" id="radio_nav.html">
         <div id="radio_nav">
             <div class="row">
-                <div ng-repeat="menu in radioNav" class="col" ui-sref="{{menu.menuUrl}}">
+                <div ng-repeat="menu in radioNav" class="col" ng-click="continuedWholesale(menu)">
                     <img ng-src="{{menu.imgUrl}}">
                     <br>
                     {{menu.menuName}}&nbsp;
@@ -28,28 +28,28 @@
         </div>
     </script>
     <script type="text/ng-template" id="rect_nav.html">
-        <div id="rect_nav" class="text-center">
+        <div id="rect_nav" class="text-center" ng-controller="rectNavController">
             <div class="row no_padding">
                 <div class="col">
-                    <div id="rect_div_1" class="rect_div text-left" ng-click="quotaDetail(rectNav[0])">
-                        <span class="rect_inner_1 text-center">{{rectNav[0].menuName}}</span><span class="rect_inner_2">|</span><span class="rect_inner_3">{{rectNav[0].quotaValue}}</span>
+                    <div id="rect_div_1" class="rect_div text-left" ng-click="quotaDetail(rectNav[0].menuName)">
+                        <span id="rect_menuName_1" class="rect_inner_1 text-center"></span><span id="rect_mid_1" class="rect_inner_2">|</span><span id="rect_value_1" class="rect_inner_3"></span>
                     </div>
                 </div>
                 <div class="col">
-                    <div id="rect_div_2" class="rect_div text-left"  ng-click="quotaDetail(rectNav[1])">
-                        <span class="rect_inner_1 text-center">{{rectNav[1].menuName}}</span><span class="rect_inner_2">|</span><span class="rect_inner_3">{{rectNav[1].quotaValue}}</span>
+                    <div id="rect_div_2" class="rect_div text-left"  ng-click="quotaDetail(rectNav[1].menuName)">
+                        <span id="rect_menuName_2" class="rect_inner_1 text-center"></span><span id="rect_mid_2" class="rect_inner_2">|</span><span id="rect_value_2" class="rect_inner_3"></span>
                     </div>
                 </div>
             </div>
             <div class="row no_padding">
                 <div class="col ">
-                    <div id="rect_div_3" class="rect_div text-left"  ng-click="quotaDetail(rectNav[2])">
-                        <span class="rect_inner_1 text-center">{{rectNav[2].menuName}}</span><span class="rect_inner_2">|</span><span class="rect_inner_3">{{rectNav[2].quotaValue}}</span>
+                    <div id="rect_div_3" class="rect_div text-left"  ng-click="quotaDetail(rectNav[2].menuName)">
+                        <span id="rect_menuName_3" class="rect_inner_1 text-center"></span><span id="rect_mid_3" class="rect_inner_2">|</span><span id="rect_value_3" class="rect_inner_3"></span>
                     </div>
                 </div>
                 <div class="col">
-                    <div id="rect_div_4" class="rect_div text-left"  ng-click="quotaDetail(rectNav[3])">
-                        <span class="rect_inner_1 text-center">{{rectNav[3].menuName}}</span><span class="rect_inner_2">|</span><span class="rect_inner_3">{{rectNav[3].quotaValue}}</span>
+                    <div id="rect_div_4" class="rect_div text-left"  ng-click="quotaDetail(rectNav[3].menuName)">
+                        <span id="rect_menuName_4" class="rect_inner_1 text-center"></span><span id="rect_mid_4" class="rect_inner_2">|</span><span id="rect_value_4" class="rect_inner_3"></span>
                     </div>
                 </div>
             </div>
@@ -62,9 +62,9 @@
                     <span class="sub_title_icon">&nbsp;</span>&nbsp;<span class="sub_title_word">{{reportNav.catalogName}}</span>
                 </div>
             </div>
-            <div class="row hr_style" ng-repeat="menu in reportNav.menuList">
+            <div class="row hr_style report_list" ng-repeat="menu in reportNav.menuList" ng-click="reportDetail(menu)">
                 <div class="col">
-                    <img ng-src="{{menu.imgUrl}}" class="report_nav_icon">&nbsp;{{menu.menuName}}<img ng-src="img/arrow_right.png" class="list_left_icon">
+                    <img ng-src="img/menu_report_icon.png" class="report_nav_icon">&nbsp;{{menu.menuName}}<img ng-src="img/arrow_right.png" class="list_left_icon">
                 </div>
             </div>
         </div>

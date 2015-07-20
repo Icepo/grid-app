@@ -6,13 +6,6 @@ module.exports = [
         "runs": true
     },
     {
-        "file": "plugins/cordova-plugin-device/www/device.js",
-        "id": "cordova-plugin-device.device",
-        "clobbers": [
-            "device"
-        ]
-    },
-    {
         "file": "plugins/cordova-plugin-contacts/www/contacts.js",
         "id": "cordova-plugin-contacts.contacts",
         "clobbers": [
@@ -88,16 +81,23 @@ module.exports = [
         "clobbers": [
             "datePicker"
         ]
+    },
+    {
+        "file": "plugins/cordova-plugin-device/www/device.js",
+        "id": "cordova-plugin-device.device",
+        "clobbers": [
+            "device"
+        ]
     }
 ];
 module.exports.metadata = 
 // TOP OF METADATA
 {
     "cordova-plugin-whitelist": "1.0.0",
-    "cordova-plugin-device": "1.0.0",
     "cordova-plugin-contacts": "1.0.1-dev",
     "com.ionic.keyboard": "1.0.4",
-    "com.plugin.datepicker": "0.6.0"
+    "com.plugin.datepicker": "0.6.0",
+    "cordova-plugin-device": "1.0.0"
 }
 // BOTTOM OF METADATA
 });

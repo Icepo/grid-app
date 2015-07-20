@@ -8,6 +8,13 @@ app.directive('pub',function(){
         templateUrl:'pub.html'
     }
 });
+app.directive('loginWeb',function(){
+    return{
+        restrict:'E',
+        replace:true,
+        templateUrl:'login-web.html'
+    }
+});
 app.directive('home',function(){
     return{
         restrict:'E',

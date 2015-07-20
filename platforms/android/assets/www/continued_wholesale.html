@@ -16,7 +16,7 @@
     </script>
     <script type="text/ng-template" id="continued_wholesale_top_monthpicker.html">
         <div class="text-center sub_title_light">
-            <img class="sub_title_left" ng-src="img/triangle_left_active.png"><span id="datepicker_font">2015年3月到期</span><img class="sub_title_right" ng-src="img/triangle_right_active.png">
+            <img class="sub_title_left" ng-src="img/triangle_left_active.png"><span id="datepicker_font">{{invalidDate.getFullYear()}}年{{invalidDate.getMonth()+1}}月到期</span><img class="sub_title_right" ng-src="img/triangle_right_active.png">
         </div>
     </script>
     <script type="text/ng-template" id="continued_wholesale_user_info.html">
@@ -80,14 +80,14 @@
             </div>
             <div class="list_bottom">北京市海淀区牡丹园国安剧场南侧</div>
         </div>
-        <div class="continued_list">
-            <div class="list_head">花园东路四号院</div>
+        <div class="continued_list" ng-repeat="wangge in wanggeList">
+            <div class="list_head">{{wangge.wanggeName}}</div>
             <div class="text-center list_middle">
-                <span><css class="font_large font_black">200</css><br><css>全部</css></span>
+                <span><css class="font_large font_black">{{wangge.TotalNum}}</css><br><css>全部</css></span>
                 <span class="font_large move_to_top_6">&nbsp;&nbsp;|</span>
-                <span><css class="font_large font_black">187</css><br>已续</span>
+                <span><css class="font_large font_black">{{wangge.FinishNum}}</css><br>已续</span>
                 <span class="font_large move_to_top_6">&nbsp;&nbsp;|</span>
-                <span><css class="font_large font_unicom">13</css><br>未续</span>
+                <span><css class="font_large font_unicom">{{wangge.UnFinishNum}}</css><br>未续</span>
             </div>
             <div class="list_bottom">北京市海淀区牡丹园国安剧场南侧</div>
         </div>

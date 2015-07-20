@@ -18,4 +18,19 @@ app.controller('testController',['communicateService','$scope',function(communic
                 console.log("communication failed");
             });
     }
+    $scope.device=device;
+    $scope.screenOrientation="";
+    var callback=function(deviceOrientation){
+        $scope.screenOrientation=deviceOrientation;
+    };
+    $scope.setScreenOrientation=function(param){
+        alert(param);
+        device.setHorizontal(function(){},function(){});
+        document.addEventListener('backbutton',onBackButton,false);
+        function onBackButton(){
+            device.setVertical(function(){},function(){});
+            document.removeEventListener('backbutton',onBackButton,false);
+        }
+        alert(param+999);
+    }
 }]);

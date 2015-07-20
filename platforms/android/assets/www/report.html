@@ -19,17 +19,14 @@
     </script>
     <script type="text/ng-template" id="report_detail_list.html">
         <table class="text-center" id="report_table">
-            <tr id="report_table_title" class="border_bottom fixedHeader">
-                <td class="fixedCell" ng-repeat="title in data.titles">&nbsp;{{title.name}}&nbsp;</td>
-            </tr>
-            <tr ng-repeat="item in data.items">
-                <td class="td fixedDataCol">{{item.prop_1}}</td>
-                <td class="td fixedDataCol">{{item.prop_2}}</td>
-                <td class="td fixedDataCol">{{item.prop_3}}</td>
-                <td class="td">{{item.prop_4}}</td>
-                <td class="td">{{item.prop_5}}</td>
-                <td class="td">{{item.prop_6}}</td>
-            </tr>
+            <tbody id="report_tbody">
+                <tr id="report_table_title" class="border_bottom">
+                    <td ng-repeat="title in report_titles">&nbsp;{{title}}&nbsp;</td>
+                </tr>
+                <tr ng-repeat="item in reportItems">
+                    <td>123</td>
+                </tr>
+            </tbody>
         </table>
         <div id="mask" ng-show="optionShow" ng-click="changeDisplay()"></div>
     </script>
@@ -42,52 +39,37 @@
         <div class="sub_title border_bottom text-center">
             <img class="img_left" ng-src="img/title_left.png" ng-click="back()">
             <span id="title_font">{{reportTitle}}</span>
+            <img class="img_right" ng-src="img/search.png" ng-click="queryReport()">
         </div>
     </script>
     <script type="text/ng-template" id="report_detail_top_option.html">
-        <div class="text-center border_bottom" id="report_options">
-    <span class="report_option text-center" ng-click="changeDisplay()">
-        全部四区&nbsp;<img ng-src="img/triangle_down.png">
-    </span>
-    <span class="report_option text-center">
-        2015年2月&nbsp;<img ng-src="img/triangle_down.png">
-    </span>
+        <div class="text-center border_bottom report_options">
+            <span class="report_option text-center" ng-click="changeDisplay(currentAreaId,'report_option_col_1',true)">
+                {{currentAreaName}}&nbsp;<img ng-src="img/triangle_down.png">
+            </span>
+            <span class="report_option text-center">
+                {{currentDateStr}}&nbsp;<img ng-src="img/triangle_down.png">
+            </span>
         </div>
     </script>
     <script type="text/ng-template" id="report_options.html">
         <div id="report_options_detail" class="row no_padding text-center" ng-click="changeOption($event)" ng-show="optionShow">
             <div class="col no_padding" id="report_options_detail_1">
-                <ul>
-                    <li>中国联通北京分公司</li>
-                    <li id="2" class="option" ng-class="{'option_active':optionSelected_1==2}">二区</li>
-                    <li id="3" class="option" ng-class="{'option_active':optionSelected_1==3}">三区</li>
-                    <li id="4" class="option" ng-class="{'option_active':optionSelected_1==4}">四区</li>
-                    <li id="5" class="option" ng-class="{'option_active':optionSelected_1==5}">五区</li>
-                    <li id="7" class="option" ng-class="{'option_active':optionSelected_1==7}">七区</li>
-                    <li id="8" class="option" ng-class="{'option_active':optionSelected_1==8}">八区</li>
+                <ul class="has-next" id="report_option_col_1">
+                    <li id="rootLi" ng-click="clearSelectedArea()">{{cache.permissionAreaName}}</li>
                 </ul>
             </div>
             <div class="col no_padding" id="report_options_detail_2">
-                <ul>
-                    <li>全部二区</li>
-                    <li>西三期分局</li>
-                    <li>北太平庄分局</li>
-                    <li>西直门分局</li>
-                    <li class="option_active">温泉分局</li>
-                    <li>二里庄分局</li>
+                <ul class="has-next" id="report_option_col_2">
+                   <li id="report_option_col_1_nextAreaName"></li>
                 </ul>
             </div>
-            <div class="col no_padding">
-                <ul>
-                    <li>全部北太平庄分局</li>
-                    <li>杭燕网格</li>
-                    <li>黄寺网格</li>
-                    <li class="option_active">马甸网格</li>
-                    <li>牡丹园网格</li>
-                    <li>罗庄西网格</li>
-                    <li>京门网格</li>
+            <div class="col no_padding" id="report_options_detail_3">
+                <ul id="report_option_col_3">
+                    <li id="report_option_col_2_nextAreaName"></li>
                 </ul>
             </div>
         </div>
     </script>
+    <report-instance></report-instance>
 </div>

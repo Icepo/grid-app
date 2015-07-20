@@ -5,9 +5,6 @@
         <param name="android-package" value="org.apache.cordova.whitelist.WhitelistPlugin" />
         <param name="onload" value="true" />
     </feature>
-    <feature name="Device">
-        <param name="android-package" value="org.apache.cordova.device.Device" />
-    </feature>
     <feature name="Contacts">
         <param name="android-package" value="org.apache.cordova.contacts.ContactManager" />
     </feature>
@@ -18,11 +15,11 @@
     <feature name="DatePickerPlugin">
         <param name="android-package" value="com.plugin.datepicker.DatePickerPlugin" />
     </feature>
+    <feature name="Device">
+        <param name="android-package" value="org.apache.cordova.device.Device" />
+    </feature>
     <allow-intent href="market:*" />
-    <icon src="www/img/icon.png" />
-    <splash src="www/img/p1.png" />
-    <splash src="www/img/p2.png" />
-    <splash src="www/img/p3.png" />
+    <icon src="www/img/main.png" />
     <name>掌上营销</name>
     <description>
         A sample Apache Cordova application that responds to the deviceready event.
