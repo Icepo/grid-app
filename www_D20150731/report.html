@@ -1,0 +1,76 @@
+<div>
+    <script type="text/ng-template" id="report_catalog.html">
+        <div ng-repeat="content in reportContentList">
+            <div class="row">
+                <div class="col">
+                    <span ng-class="{sub_title_icon:$index==0,sub_title_icon_green:$index==1}">&nbsp;</span>&nbsp;<span class="sub_title_word">{{content.catalogName}}</span>
+                </div>
+            </div>
+            <div class="row hr_style" ng-repeat="menu in content.menuList" ng-click="reportDetail(menu)">
+                <div class="col report_menu">
+                    &nbsp;&nbsp;<img ng-src="{{menu.imgUrl}}" class="report_nav_icon">&nbsp;{{menu.menuName}}
+                </div>
+            </div>
+        </div>
+    </script>
+    <script type="text/ng-template" id="report_detail.html">
+        <div ui-view="report_detail_top" class="detail_top"></div>
+        <div ui-view="report_detail_bottom"></div>
+    </script>
+    <script type="text/ng-template" id="report_detail_list.html">
+        <table class="text-center report_table" id="report_table">
+            <tbody id="report_tbody">
+                <tr class="border_bottom report_table_title">
+                    <td ng-repeat="title in report_titles">&nbsp;{{title}}&nbsp;</td>
+                </tr>
+                <tr ng-repeat="item in reportItems">
+
+                </tr>
+            </tbody>
+        </table>
+        <div id="mask" ng-show="optionShow" ng-click="changeDisplay()"></div>
+    </script>
+    <script type="text/ng-template" id="report_detail_top.html">
+        <div ui-view="report_detail_top_header"></div>
+        <div ui-view="report_detail_top_option"></div>
+        <div ui-view="report_options_select"></div>
+    </script>
+    <script type="text/ng-template" id="report_detail_top_header.html">
+        <div class="sub_title border_bottom text-center">
+            <img class="img_left" ng-src="img/title_left.png" ng-click="back()">
+            <span id="title_font">{{reportTitle}}</span>
+            <img class="img_right" ng-src="img/search.png" ng-click="queryReport()">
+        </div>
+    </script>
+    <script type="text/ng-template" id="report_detail_top_option.html">
+        <div class="text-center border_bottom report_options">
+            <span class="report_option text-center" ng-click="changeDisplay(currentAreaId,'report_option_col_1',true)">
+                {{currentAreaName}}&nbsp;<img ng-src="img/triangle_down.png">
+            </span>
+
+            <span class="report_option text-center">
+                {{currentDateStr}}&nbsp;<img ng-src="img/triangle_down.png">
+            </span>
+        </div>
+    </script>
+    <script type="text/ng-template" id="report_options.html">
+        <div id="report_options_detail" class="row no_padding text-center" ng-click="changeOption($event)" ng-show="optionShow">
+            <div class="col no_padding" id="report_options_detail_1">
+                <ul class="has-next" id="report_option_col_1">
+                    <li id="rootLi" ng-click="clearSelectedArea()">{{cache.permissionAreaName}}</li>
+                </ul>
+            </div>
+            <div class="col no_padding" id="report_options_detail_2">
+                <ul class="has-next" id="report_option_col_2">
+                   <li id="report_option_col_1_nextAreaName"></li>
+                </ul>
+            </div>
+            <div class="col no_padding" id="report_options_detail_3">
+                <ul id="report_option_col_3">
+                    <li id="report_option_col_2_nextAreaName"></li>
+                </ul>
+            </div>
+        </div>
+    </script>
+    <report-instance></report-instance>
+</div>

@@ -1,0 +1,39 @@
+<div>
+    <!-- 主页结构 -->
+    <script type="text/ng-template" id="index.html">
+        <div id="index">
+            <div ui-view="header" class="opcity_change"></div>
+            <div id="content_div" ui-view="content" class="page-slide-left-right"></div>
+            <div ui-view="footer" class="opcity_change"></div>
+        </div>
+    </script>
+    <script type="text/ng-template" id="header.html">
+        <div class="bar bar-header bar-unicom fixed">
+            <h1 class="title"><img id="title_icon" ng-src="img/icon.png">&nbsp;<span id="header_word">{{title}}</span></h1>
+        </div>
+    </script>
+    <script type="text/ng-template" id="header_simple.html">
+        <div class="bar bar-header bar-unicom fixed">
+            <h3 class="title"><span id="header_word">{{title}}</span></h3>
+        </div>
+    </script>
+    <!-- footer -->
+    <script type="text/ng-template" id="footer.html">
+        <div class="bar bar-footer bar-unicom no_padding fixed">
+            <div class="row text-center no_padding" ng-controller="footerController">
+                <div class="col no_padding footer_col" ng-repeat="item in footer_items" ng-class="{footer_col_active:item.footer_selected==1}" ng-click="selectItem(item.footer_code)">
+                    <img ng-if="item.footer_selected==0" ng-src="{{item.footer_icon}}">
+                    <img ng-if="item.footer_selected==1" ng-src="{{item.footer_icon_active}}">
+                    <br>
+                    {{item.footer_text}}&nbsp;
+                </div>
+            </div>
+        </div>
+    </script>
+    <!--msg-->
+    <script type="text/ng-template" id="msg">
+        <div id="show-msg">
+            <div id="show-msg-content" ng-show="true">{{msg}}</div>
+        </div>
+    </script>
+</div>

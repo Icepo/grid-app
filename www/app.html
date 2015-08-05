@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-eval' ;default-src 'self' http://132.81.67.150:8082;connect-src 'self' http://132.81.67.150:8082; style-src 'self' 'unsafe-inline'; media-src *">
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-eval' ;default-src 'self' http://202.96.18.102:9631;connect-src 'self' http://202.96.18.102:9631; style-src 'self' 'unsafe-inline'; media-src *;img-src *">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
@@ -13,6 +13,8 @@
     <script type="text/javascript" src="js/ionic/angular/angular.js"></script>
     <script type="text/javascript" src="js/ionic/angular-ui/angular-ui-router.js"></script>
     <script type="text/javascript" src="js/ionic/angular/angular-animate.js"></script>
+    <script type="text/javascript" src="js/ionic/angular/angular-toaster.js"></script>
+    <script type="text/javascript" src="js/ionic/angular/loading-bar.js"></script>
     <script type="text/javascript" src="js/system/system-app.js"></script>
     <script type="text/javascript" src="js/system/system-directive.js"></script>
     <script type="text/javascript" src="js/system/system-route.js"></script>
@@ -32,6 +34,8 @@
     <script type="text/javascript" src="js/business/continued_wholesale/continued-wholesale-controller.js"></script>
     <script type="text/javascript" src="js/business/activity/activity-route.js"></script>
     <script type="text/javascript" src="js/business/activity/activity-controller.js"></script>
+    <script type="text/javascript" src="js/business/customer_card/customer-card-route.js"></script>
+    <script type="text/javascript" src="js/business/customer_card/customer-card-controller.js"></script>
     <script type="text/javascript" src="js/ionic/ionic.js"></script>
     <script type="text/javascript" src="js/test/test-controller.js"></script>
     <script type="text/javascript" src="js/test.js"></script>
@@ -40,7 +44,9 @@
     <script type="text/javascript" src="js/pub/line-chart.js"></script>
     <script type="text/javascript" src="js/pub/column-chart.js"></script>
     <script type="text/javascript" src="js/more-test/more-test-controller.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/loading-bar.css">
     <link rel="stylesheet" type="text/css" href="css/ionic.css">
+    <link rel="stylesheet" type="text/css" href="css/toaster.css">
     <link rel="stylesheet" type="text/css" href="css/layout.css">
     <title>login</title>
 </head>
@@ -63,13 +69,13 @@
                 <div id="login_label_name">用户名&nbsp;&nbsp;</div>
                 <div class="list list-inset login_input">
                     <label class="item item-input">
-                        <input type="text" ng-model="user.username">
+                        <input type="text" ng-model="user.username" placeholder="请输入用户名">
                     </label>
                 </div>
                 <div id="login_label_pwd">密&nbsp;&nbsp;&nbsp;&nbsp;码&nbsp;&nbsp;</div>
                 <div class="list list-inset login_input">
                     <label class="item item-input">
-                        <input type="password" ng-model="user.userpassword">
+                        <input type="password" ng-model="user.userpassword" placeholder="请输入密码">
                     </label>
                 </div>
                 <button id="login_button" class="button button-small" ng-click="doLogin()">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;登录&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</button>
@@ -90,5 +96,9 @@
     <continued_wholesale></continued_wholesale>
     <!-- 活动 -->
     <activity></activity>
+    <!-- 用户卡片 -->
+    <customer-card></customer-card>
+    <!-- toaster -->
+    <toaster-container></toaster-container>
 </body>
 </html>

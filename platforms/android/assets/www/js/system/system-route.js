@@ -41,7 +41,7 @@
                 views:{
                     'radio_nav':{
                         templateUrl:'radio_nav.html',
-                        controller:'continuedController'
+                        controller:'radioNavController'
                     },
                     'bar_nav':{
                         template:'<div id="bar_nav">&nbsp;</div>'

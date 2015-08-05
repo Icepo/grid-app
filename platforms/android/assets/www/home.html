@@ -8,10 +8,10 @@
         <br><br><br>
     </script>
     <script type="text/ng-template" id="quota_nav.html">
-        <div id="quota_nav" ng-controller="quotaNavController">
+        <div id="quota_nav">
             <div class="row hr_style" ng-repeat="menuArray in quotaNav">
-                <div class="col" ng-repeat="menu in menuArray"  ng-click="quotaDetail(menu.menuName)">
-                    <img name="{{menu.menuName}}_img_m" class="quota_nav_icon ng-hide" ng-src="img/report_month.png"><img name="{{menu.menuName}}_img_d" class="quota_nav_icon ng-hide" ng-src="img/report_day.png">&nbsp;<css name="{{menu.menuName}}">{{menu.menuName}}</css>
+                <div class="col" ng-repeat="menu in menuArray"  ng-click="quotaDetail(menu.menuCode)">
+                    <img ng-if="menu.menuDesc=='M'" class="quota_nav_icon" ng-src="img/quota_month.png"><img ng-if="menu.menuDesc=='D'" class="quota_nav_icon" ng-src="img/quota_day.png">&nbsp;<css name="{{menu.menuName}}">{{menu.menuName}}</css>
                 </div>
             </div>
         </div>
@@ -19,7 +19,7 @@
     <script type="text/ng-template" id="radio_nav.html">
         <div id="radio_nav">
             <div class="row">
-                <div ng-repeat="menu in radioNav" class="col" ng-click="continuedWholesale(menu)">
+                <div ng-repeat="menu in radioNav" class="col" ng-click="selectMenu(menu)">
                     <img ng-src="{{menu.imgUrl}}">
                     <br>
                     {{menu.menuName}}&nbsp;
@@ -31,24 +31,24 @@
         <div id="rect_nav" class="text-center" ng-controller="rectNavController">
             <div class="row no_padding">
                 <div class="col">
-                    <div id="rect_div_1" class="rect_div text-left" ng-click="quotaDetail(rectNav[0].menuName)">
+                    <div id="rect_div_1" class="rect_div text-left" ng-click="quotaDetail(rectNav[0].menuCode)">
                         <span id="rect_menuName_1" class="rect_inner_1 text-center"></span><span id="rect_mid_1" class="rect_inner_2">|</span><span id="rect_value_1" class="rect_inner_3"></span>
                     </div>
                 </div>
                 <div class="col">
-                    <div id="rect_div_2" class="rect_div text-left"  ng-click="quotaDetail(rectNav[1].menuName)">
+                    <div id="rect_div_2" class="rect_div text-left"  ng-click="quotaDetail(rectNav[1].menuCode)">
                         <span id="rect_menuName_2" class="rect_inner_1 text-center"></span><span id="rect_mid_2" class="rect_inner_2">|</span><span id="rect_value_2" class="rect_inner_3"></span>
                     </div>
                 </div>
             </div>
             <div class="row no_padding">
                 <div class="col ">
-                    <div id="rect_div_3" class="rect_div text-left"  ng-click="quotaDetail(rectNav[2].menuName)">
+                    <div id="rect_div_3" class="rect_div text-left"  ng-click="quotaDetail(rectNav[2].menuCode)">
                         <span id="rect_menuName_3" class="rect_inner_1 text-center"></span><span id="rect_mid_3" class="rect_inner_2">|</span><span id="rect_value_3" class="rect_inner_3"></span>
                     </div>
                 </div>
                 <div class="col">
-                    <div id="rect_div_4" class="rect_div text-left"  ng-click="quotaDetail(rectNav[3].menuName)">
+                    <div id="rect_div_4" class="rect_div text-left"  ng-click="quotaDetail(rectNav[3].menuCode)">
                         <span id="rect_menuName_4" class="rect_inner_1 text-center"></span><span id="rect_mid_4" class="rect_inner_2">|</span><span id="rect_value_4" class="rect_inner_3"></span>
                     </div>
                 </div>

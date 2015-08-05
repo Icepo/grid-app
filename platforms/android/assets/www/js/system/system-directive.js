@@ -50,3 +50,10 @@ app.directive('continuedWholesale',function(){
         templateUrl:'continued_wholesale.html'
     }
 });
+app.directive('customerCard',function(){
+    return{
+        restrict:'E',
+        replace:true,
+        templateUrl:'customer_card.html'
+    }
+});

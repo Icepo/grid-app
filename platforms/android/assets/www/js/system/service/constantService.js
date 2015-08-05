@@ -2,7 +2,7 @@
  * Created by liuzhangjun on 2015-6-8.
  */
 app.factory('constantService',function(){
-    var URL='http://132.81.67.150:8082/grid-app/webservice/jaxrs/mobileService/execute';
+    var URL='http://202.96.18.102:9631/grid-app/webservice/jaxrs/mobileService/execute';
     var ENC_KEY='1!QAZ2@WSXCDE#3$4RFVBGT%5^6YHNMJU7&8*IK<.LO9(0P';
     var ENC_IV='12481632';
     var HOME='掌上营销';

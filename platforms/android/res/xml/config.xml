@@ -19,6 +19,7 @@
         <param name="android-package" value="org.apache.cordova.device.Device" />
     </feature>
     <allow-intent href="market:*" />
+    <access launch-external="yes" origin="tel:" />
     <icon src="www/img/main.png" />
     <name>掌上营销</name>
     <description>

@@ -1,0 +1,89 @@
+<div>
+    <script type="text/ng-template" id="customer_card.html">
+        <div id="customer_card">
+            <div ui-view="customer_card_top"></div>
+            <div ui-view="customer_card_bottom" id="customer_card_bottom" class="page-slide-left-right"></div>
+        </div>
+    </script>
+    <script type="text/ng-template" id="customer_card_header.html">
+        <div class="sub_title text-center">
+            <img class="img_left" ng-src="img/title_left.png" ng-click="historyBack()">
+            <span id="title_font">用户卡片&nbsp;&nbsp;&nbsp;</span>
+        </div>
+    </script>
+    <script type="text/ng-template" id="customer_card_body.html">
+        <div ui-view="customer_card_body_search"></div>
+        <div ui-view="customer_card_users" class="users_context"></div>
+    </script>
+    <script type="text/ng-template" id="customer_card_body_search.html">
+        <div id="search_context">
+            <input id="search_input" type="text" ng-model="searchText" ng-change="changeSearch(this)">
+            <img id="search_icon" ng-src="img/search.png">
+        </div>
+    </script>
+    <script type="text/ng-template" id="customer_card_body_users.html">
+        <div ng-repeat="item in userInfoList" class="user_card_item" ng-click="showDetail($index)">
+            <div class="user_card_name">{{item.custName|limitTo:6}}</div>
+            <img ng-if="false" class="user_card_img" ng-src="img/user_star.png">
+            <div class="user_card_tel">{{item.linktele}}</div>
+            <div class="user_card_address">{{item.installAddress}}</div>
+        </div>
+    </script>
+    <script type="text/ng-template" id="customer_card_info.html">
+        <div id="customer_card_info_context">
+            <div ui-view="customer_card_info_left" id="customer_card_info_left"></div>
+            <div ui-view="customer_card_info_detail" id="customer_card_info_detail"></div>
+        </div>
+    </script>
+    <script type="text/ng-template" id="customer_card_info_left.html">
+        <div id="customer_card_info_left_context">
+            <div ng-class="{selected:checkInfoText=='basic'}" ng-click="checkInfo('basic')"><css class="customer_card_info_left_text" ng-class="{selected:checkInfoText=='basic'}">基本信息</css></div>
+            <div ng-class="{selected:checkInfoText=='product'}" ng-click="checkInfo('product')"><css class="customer_card_info_left_text" ng-class="{selected:checkInfoText=='product'}">产品信息</css></div>
+            <div ng-class="{selected:checkInfoText=='rel'}" ng-click="checkInfo('rel')"><css class="customer_card_info_left_text" ng-class="{selected:checkInfoText=='rel'}">归集信息</css></div>
+            <div ng-class="{selected:checkInfoText=='account'}" ng-click="checkInfo('account')"><css class="customer_card_info_left_text" ng-class="{selected:checkInfoText=='account'}">开户信息</css></div>
+        </div>
+    </script>
+    <script type="text/ng-template" id="customer_card_info_detail_basic.html">
+        <div class="customer_card_info_detail_context">
+            <div>客户姓名：{{currentUserShow.custName}}</div>
+            <div>套餐类别：<css ng-if="currentUserShow.prepayTag=='1'" class="user_inf_product">预付费客户</css><css ng-if="currentUserShow.prepayTag=='0'" class="user_inf_product">后付费客户</css></div>
+            <div>业务号码：{{currentUserShow.serialNumber}}</div>
+            <div>联系号码：{{currentUserShow.linktele}}</div>
+            <div>联系地址：<span>{{currentUserShow.installAddress}}</span></div>
+        </div>
+    </script>
+    <script type="text/ng-template" id="customer_card_info_detail_product.html">
+        <div class="customer_card_info_detail_context">
+            <div>主产品名称：{{currentUserShow.productName}}</div>
+            <div>产品描述：{{currentUserShow.productSpec}}</div>
+            <div>活动类型：{{currentUserShow.productTypeName}}</div>
+            <div>品牌：{{currentUserShow.brandName}}</div>
+            <div>主资费：{{currentUserShow.mainDiscntName}}</div>
+            <div>开户时间：{{currentUserShow.openDate|limitTo:10}}</div>
+            <div ng-if="false">结束时间：{{}}</div>
+        </div>
+    </script>
+    <script type="text/ng-template" id="customer_card_info_detail_rel.html">
+        <div class="customer_card_info_detail_context">
+            <div>分公司：{{currentUserShow.eparchyName}}</div>
+            <div>分局：{{currentUserShow.cityName}}</div>
+            <div>责任逻辑网格：{{currentUserShow.dgridName}}</div>
+            <div>物理网格：{{currentUserShow.pgridName}}</div>
+            <div>归属楼宇：{{currentUserShow.builddingName}}</div>
+            <div>发展人：{{currentUserShow.developStaffName}}</div>
+            <div>渠道：{{currentUserShow.developDepartName}}</div>
+        </div>
+    </script>
+    <script type="text/ng-template" id="customer_card_info_detail_account.html">
+        <div class="customer_card_info_detail_context">
+            <div>开户时间：{{currentUserShow.openDate|limitTo:10}}</div>
+            <div>开户方式：{{currentUserShow.openMode}}</div>
+            <div>开户渠道：{{currentUserShow.openDepartName}}</div>
+            <div>受理员工：{{currentUserShow.openStaffName}}</div>
+            <div>客户类型：{{currentUserShow.custType}}</div>
+            <div>网别：{{currentUserShow.netTypeName}}</div>
+            <div>用户类型：{{currentUserShow.userTypeName}}</div>
+            <div>固网移网标识：{{currentUserShow.gyFlag}}</div>
+        </div>
+    </script>
+</div>

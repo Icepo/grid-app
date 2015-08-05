@@ -1,0 +1,72 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {
+            "config.xml": {
+                "parents": {
+                    "/*": [
+                        {
+                            "xml": "<feature name=\"Keyboard\"><param name=\"ios-package\" onload=\"true\" value=\"IonicKeyboard\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"DatePicker\"><param name=\"ios-package\" value=\"DatePicker\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Contacts\"><param name=\"ios-package\" value=\"CDVContacts\" /></feature>",
+                            "count": 1
+                        },
+                        {
+                            "xml": "<feature name=\"Device\"><param name=\"ios-package\" value=\"CDVDevice\" /></feature>",
+                            "count": 1
+                        }
+                    ]
+                }
+            },
+            "framework": {
+                "parents": {
+                    "AddressBook.framework": [
+                        {
+                            "xml": true,
+                            "count": 1
+                        }
+                    ],
+                    "AddressBookUI.framework": [
+                        {
+                            "xml": true,
+                            "count": 1
+                        }
+                    ],
+                    "CoreGraphics.framework": [
+                        {
+                            "xml": false,
+                            "count": 1
+                        }
+                    ]
+                }
+            }
+        }
+    },
+    "installed_plugins": {
+        "com.ionic.keyboard": {
+            "PACKAGE_NAME": "com.cattsoft.fast.grid.mobile.app"
+        },
+        "com.plugin.datepicker": {
+            "PACKAGE_NAME": "com.cattsoft.fast.grid.mobile.app"
+        },
+        "cordova-plugin-contacts": {
+            "PACKAGE_NAME": "com.cattsoft.fast.grid.mobile.app"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.cattsoft.fast.grid.mobile.app"
+        },
+        "cordova-plugin-whitelist": {
+            "PACKAGE_NAME": "com.cattsoft.fast.grid.mobile.app"
+        }
+    },
+    "dependent_plugins": {}
+}

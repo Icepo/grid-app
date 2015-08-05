@@ -24,7 +24,6 @@
                     <td ng-repeat="title in report_titles">&nbsp;{{title}}&nbsp;</td>
                 </tr>
                 <tr ng-repeat="item in reportItems">
-                    <td>123</td>
                 </tr>
             </tbody>
         </table>
@@ -44,9 +43,10 @@
     </script>
     <script type="text/ng-template" id="report_detail_top_option.html">
         <div class="text-center border_bottom report_options">
-            <span class="report_option text-center" ng-click="changeDisplay(currentAreaId,'report_option_col_1',true)">
+            <span class="report_option text-center" ng-click="changeDisplay(currentAreaId,'1',true)">
                 {{currentAreaName}}&nbsp;<img ng-src="img/triangle_down.png">
             </span>
+
             <span class="report_option text-center">
                 {{currentDateStr}}&nbsp;<img ng-src="img/triangle_down.png">
             </span>
@@ -57,16 +57,17 @@
             <div class="col no_padding" id="report_options_detail_1">
                 <ul class="has-next" id="report_option_col_1">
                     <li id="rootLi" ng-click="clearSelectedArea()">{{cache.permissionAreaName}}</li>
+                    <li ng-repeat="areaItem in optionAreaList_1" id="{{areaItem.areaId}}">{{areaItem.areaName}}</li>
                 </ul>
             </div>
             <div class="col no_padding" id="report_options_detail_2">
                 <ul class="has-next" id="report_option_col_2">
-                   <li id="report_option_col_1_nextAreaName"></li>
+                    <li ng-repeat="areaItem in optionAreaList_2" id="{{areaItem.areaId}}">{{areaItem.areaName}}</li>
                 </ul>
             </div>
             <div class="col no_padding" id="report_options_detail_3">
                 <ul id="report_option_col_3">
-                    <li id="report_option_col_2_nextAreaName"></li>
+                    <li ng-repeat="areaItem in optionAreaList_3" id="{{areaItem.areaId}}">{{areaItem.areaName}}</li>
                 </ul>
             </div>
         </div>

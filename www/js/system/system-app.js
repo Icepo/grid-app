@@ -1,5 +1,5 @@
 //main
-var app=angular.module('app',['ngAnimate','ui.router']);
+var app=angular.module('app',['toaster','ngAnimate','ui.router','angular-loading-bar']);
 //配置请求头
 app.config(function($httpProvider){
     $httpProvider.defaults.useXDomain=true;

@@ -1,13 +1,14 @@
-app.controller('quotaNavController',['$scope','$state','$rootScope','communicateService','constantService','paramsService',function($scope,$state,$rootScope,communicateService,constantService,paramsService) {
+/*app.controller('quotaNavController',['$scope','$state','$rootScope','communicateService','constantService','paramsService',function($scope,$state,$rootScope,communicateService,constantService,paramsService) {
     $scope.tempIndex=1;
     for(var i=0;i<$scope.quotaNavList.length;i++) {
-        var quotaId = $scope.quotaNavList[i].menuName;
+        var quotaId = $scope.quotaNavList[i].menuCode;
         var currentDate=new Date();
         var content = {
             "indexCode": quotaId,
             "areaId": $rootScope.cache.permissionAreaId,
             "areaType": $rootScope.cache.areaType,
-            "billingCycle":currentDate.getFullYear()+(currentDate.getMonth()<9?'0':'')+(currentDate.getMonth()+1)+(currentDate.getDate()<10?'0':'')+(currentDate.getDate())
+//            "billingCycle":currentDate.getFullYear()+(currentDate.getMonth()<9?'0':'')+(currentDate.getMonth()+1)+(currentDate.getDate()<10?'0':'')+(currentDate.getDate())
+            "billingCycle":"20150615"
         };
         communicateService.communicate('indexDataDateService', 'queryIndexDataList', content).success(function (data) {
             console.log(data);
@@ -23,31 +24,53 @@ app.controller('quotaNavController',['$scope','$state','$rootScope','communicate
             }
         });
     }
-}]);
+}]);*/
 app.controller('rectNavController',['$scope','$state','$rootScope','communicateService','paramsService',function($scope,$state,$rootScope,communicateService,paramsService){
     $scope.tempIndex=1;
-    for(var i=0;i<$scope.rectNav.length;i++){
-        var quotaId=$scope.rectNav[i].menuCode;
-        var currentDate=new Date();
-        var content={
-            "indexCode":quotaId,
-            "areaId":$rootScope.cache.permissionAreaId,
-            "areaType":$rootScope.cache.areaType,
-            "billingCycle":currentDate.getFullYear()+(currentDate.getMonth()<9?'0':'')+(currentDate.getMonth()+1)+(currentDate.getDate()<10?'0':'')+(currentDate.getDate())
-        };
-        communicateService.communicate('indexDataDateService','queryIndexDataList',content).success(function(data){
-            if(data && data.data){
-                var quotaName=data.quotaName;
-                if(quotaName && quotaName.length<6){
-                    angular.element(document.getElementById('rect_menuName_'+$scope.tempIndex)).addClass('rect_inner_1_offset');
-                    angular.element(document.getElementById('rect_mid_'+$scope.tempIndex)).addClass('rect_inner_2_offset');
-                    angular.element(document.getElementById('rect_value_'+$scope.tempIndex)).addClass('rect_inner_3_offset');
+    if(!$rootScope.rectLoaded){
+        $rootScope.rectLoaded=true;
+        $rootScope.rectData=new Array();
+        for(var i=0;i<$scope.rectNav.length;i++){
+            var quotaId=$scope.rectNav[i].menuCode;
+            var currentDate=new Date();
+            var content={
+                "indexCode":quotaId,
+                "areaId":$rootScope.cache.permissionAreaId,
+                "areaType":$rootScope.cache.areaType,
+//            "billingCycle":currentDate.getFullYear()+(currentDate.getMonth()<9?'0':'')+(currentDate.getMonth()+1)+(currentDate.getDate()<10?'0':'')+(currentDate.getDate())
+                "billingCycle":"20150615"
+            };
+            communicateService.communicate('indexDataDateService','queryIndexDataList',content).success(function(data){
+                if(data && data.data){
+                    var quotaName=data.quotaName;
+                    if(quotaName && quotaName.length<6){
+                        angular.element(document.getElementById('rect_menuName_'+$scope.tempIndex)).addClass('rect_inner_1_offset');
+                        angular.element(document.getElementById('rect_mid_'+$scope.tempIndex)).addClass('rect_inner_2_offset');
+                        angular.element(document.getElementById('rect_value_'+$scope.tempIndex)).addClass('rect_inner_3_offset');
+                    }
+                    angular.element(document.getElementById('rect_menuName_'+$scope.tempIndex)).html(quotaName);
+                    angular.element(document.getElementById('rect_value_'+$scope.tempIndex)).html(data.data[data.data.length-1]);
+                    $rootScope.rectData[$scope.tempIndex]=data;
+                    $scope.tempIndex++;
                 }
-                angular.element(document.getElementById('rect_menuName_'+$scope.tempIndex)).html(quotaName);
-                angular.element(document.getElementById('rect_value_'+$scope.tempIndex)).html(data.data[data.data.length-1]);
+            });
+        }
+    }else{
+        for(var i=0;i<$scope.rectNav.length;i++) {
+            var data=$rootScope.rectData[$scope.tempIndex];
+            if (data && data.data) {
+                var quotaName = data.quotaName;
+                if (quotaName && quotaName.length < 6) {
+                    angular.element(document.getElementById('rect_menuName_' + $scope.tempIndex)).addClass('rect_inner_1_offset');
+                    angular.element(document.getElementById('rect_mid_' + $scope.tempIndex)).addClass('rect_inner_2_offset');
+                    angular.element(document.getElementById('rect_value_' + $scope.tempIndex)).addClass('rect_inner_3_offset');
+                }
+                angular.element(document.getElementById('rect_menuName_' + $scope.tempIndex)).html(quotaName);
+                angular.element(document.getElementById('rect_value_' + $scope.tempIndex)).html(data.data[data.data.length - 1]);
                 $scope.tempIndex++;
+                $rootScope.rectDate = data;
             }
-        });
+        }
     }
 }]);
 
@@ -109,7 +132,26 @@ app.controller('quotaTopController',['$scope','$state','$rootScope','constantSer
             mode: 'date'
         };
         datePicker.show(options, function(date){
-            alert("date result " + date);
+            if(date>new Date()){
+            }else{
+                var content={
+                    "indexCode":paramsService.quotaTotalData.indexCode,
+                    "areaId":$rootScope.cache.permissionAreaId,
+                    "areaType":$rootScope.cache.areaType,
+                    "billingCycle":date.getFullYear()+(date.getMonth()<9?'0':'')+(date.getMonth()+1)+(date.getDate()<10?'0':'')+(date.getDate())
+                };
+                communicateService.communicate('indexDataDateService','queryIndexDataList',content).success(function(data){
+                    if(data.isSuccess==0){
+                        console.log(data);
+                        return;
+                    }
+                    paramsService.quotaTitle=data.quotaName;
+                    paramsService.quotaTotalData.currentDate=new Date(date);
+                    paramsService.quotaTotalData = data;
+                    showTitleDate(date,paramsService.quotaTotalData.indexCycle);
+                    lineChartService.drawLineChart(paramsService.quotaTotalData,$state,communicateService,paramsService,$rootScope);
+                });
+            }
         });
     };
     $scope.addTime=function(num){

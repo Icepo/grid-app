@@ -1,4 +1,4 @@
-app.controller('loginController',['$scope','$state','$rootScope','communicateService','md5Service','constantService',function($scope,$state,$rootScope,communicateService,md5Service,constantService){
+app.controller('loginController',['$scope','$state','$rootScope','communicateService','md5Service','constantService','toaster',function($scope,$state,$rootScope,communicateService,md5Service,constantService,toaster){
     if(localStorage.getItem('user')!=null){
         $scope.user=JSON.parse(localStorage.getItem('user'));
         $scope.user.userpassword='';
@@ -33,12 +33,13 @@ app.controller('loginController',['$scope','$state','$rootScope','communicateSer
             }else{
                 //TODO 登录失败
                 console.log(msg);
+                toaster.pop({type:"error",title:"登录失败",body:"登录信息错误"});
 //                $state.go('index.home_bak.show'); //FIXME 测试用
             }
         });
     }
 }]);
-app.controller('footerController',['$scope','$state','$rootScope','constantService','communicateService',function($scope,$state,$rootScope,constantService,communicateService){
+app.controller('footerController',['$scope','$state','$rootScope','constantService','toaster',function($scope,$state,$rootScope,constantService,toaster){
     $scope.selectItem=function(text){
         for(var i= 0;i<$rootScope.footer_items.length;i++){
             var item=$rootScope.footer_items[i];
@@ -58,9 +59,11 @@ app.controller('footerController',['$scope','$state','$rootScope','constantServi
         }else if(text=='quota'){
             $rootScope.title=constantService.QUOTA;
         }else if(text=='more'){
-            target=text;
+            toaster.pop({type:"info",title:"温馨提示",body:"敬请期待"});
         }
-        $state.go(target);
+        if(text!='more'){
+            $state.go(target);
+        }
     };
     if(!$rootScope.nav_selected){
         $rootScope.footer_items=[
@@ -172,5 +175,41 @@ app.controller('homeController',function($scope,$rootScope,communicateService,co
         }
         return quotaList;
     }*/
+});
+app.controller('radioNavController',function($scope,$rootScope,$state,communicateService,toaster){
+    //选择菜单
+    $scope.selectMenu=function(menu){
+        if(menu.menuCode=='xudun'){
+            var content={
+//            "expMonth":$scope.invalidDateStr,
+                "expMonth":"201410",
+                "staffId":$rootScope.cache.staffId
+            };
+            communicateService.communicate('gridBundleInfoService','queryPhysicalGridBundleInfo',content).success(function(data){
+                console.log(data);
+                $rootScope.wanggeList=data.dataList;
+                //留存当前查询状态
+                $rootScope.currentPermissioniId=content.staffId;
+                $state.go(menu.menuUrl);
+            });
+        }else if(menu.menuCode=='yonghukapian'){
+            var content={
+                "dgridId":$rootScope.cache.permissionAreaId
+            }
+            communicateService.communicate('btUserInfoDayService','queryBtUserInfoDayList',content).success(function(data){
+                if(data && data.return_code==1){
+                    toaster.pop({type:"error",title:"查询失败",body:data.return_msg});
+                    return;
+                }else{
+                    $rootScope.userInfoList=data;
+                    $rootScope.userInfoListBackUp=data.concat();
+                    console.log(data);
+                    $state.go(menu.menuUrl);
+                }
+            })
+        }else if(menu.menuCode=='huodong'){
+            $state.go(menu.menuUrl);
+        }
+    };
 });
 

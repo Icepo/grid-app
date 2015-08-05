@@ -74,7 +74,7 @@
     </script>
     <script type="text/ng-template" id="quota_menus.html">
         <div class="row no_padding" ng-repeat="menuArray in quotoList">
-            <div class="col no_padding rect_list" ng-repeat="menu in menuArray" ng-click="quotaDetail(menu)" ng-class="{rect_list_left:$index%2==0,rect_list_right:$index%2==1}" style="background-color: {{menu.color}}">
+            <div class="col no_padding rect_list" ng-repeat="menu in menuArray" ng-click="quotaDetail(menu.menuCode)" ng-class="{rect_list_left:$index%2==0,rect_list_right:$index%2==1}" style="background-color: {{menu.color}}">
                 <span class="rect_list_icon"><img ng-src="img/quota_detail_icon.png"></span>
                 <span class="rect_list_word">{{menu.menuName}}</span>
             </div>

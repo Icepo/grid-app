@@ -5,9 +5,10 @@ app.factory('quotaService',function(paramsService,$rootScope,communicateService,
     var quotaDetail=function(quotaId){
         var currentDate;
         if(paramsService.quotaTotalData){
-            currentDate=paramsService.quotaTotalData.currentDate;
+            currentDate=paramsService.currentDate;
         }else{
-            currentDate=new Date();
+//            currentDate=new Date();
+            currentDate=new Date('2015','5','15');
         }
         var content={
             "indexCode":quotaId,
@@ -19,6 +20,7 @@ app.factory('quotaService',function(paramsService,$rootScope,communicateService,
             paramsService.quotaTitle=data.quotaName;
             data.currentDate=currentDate;
             paramsService.quotaTotalData = data;
+            paramsService.currentDate=currentDate;
             $state.go('quota.chart.linechart');
         });
     };

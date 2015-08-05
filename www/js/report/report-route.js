@@ -56,7 +56,7 @@ app.config(['$stateProvider',function($stateProvider){
                     controller:'reportListController'
                 },
                 'report_detail_list':{
-                    templateUrl:'report_detail_list.html',
+                    templateUrl:'report_detail_list_keyIndexRanking.html',
                     controller:'reportKeyIndexRankingController'
                 }
             }
@@ -83,6 +83,27 @@ app.config(['$stateProvider',function($stateProvider){
             }
         })
         .state('report.detail.swwgBusinessDevelopDay',{
+            url:'/swwgBusinessDevelopDay',
+            views:{
+                'report_detail_top_header':{
+                    templateUrl:'report_detail_top_header_swwgBusinessDevelopDay.html',
+                    controller:'reportSwwgBusinessDevelopDayController'
+                },
+                'report_detail_top_option':{
+                    templateUrl:'report_detail_top_option_swwgBusinessDevelopDay.html',
+                    controller:'reportListController'
+                },
+                'report_detail_list':{
+                    templateUrl:'report_detail_list_swwgBusinessDevelopDay.html',
+                    controller:'reportSwwgBusinessDevelopDayController'
+                },
+                'report_options_select':{
+                    templateUrl:'report_options.html',
+                    controller:'reportListController'
+                }
+            }
+        })
+        .state('report.detail.wgjfAdslHuizongNNew3',{
             url:'/list',
             views:{
                 'report_detail_top_header':{
@@ -94,8 +115,92 @@ app.config(['$stateProvider',function($stateProvider){
                     controller:'reportListController'
                 },
                 'report_detail_list':{
-                    templateUrl:'report_detail_list_swwgBusinessDevelopDay.html',
-                    controller:'reportSwwgBusinessDevelopDayController'
+                    templateUrl:'report_detail_list_wgjfAdslHuizongNNew3.html',
+                    controller:'reportWgjfAdslHuizongNNew3Controller'
+                },
+                'report_options_select':{
+                    templateUrl:'report_options.html',
+                    controller:'reportListController'
+                }
+            }
+        })
+        .state('report.detail.wghDicengHuizong',{
+            url:'/list',
+            views:{
+                'report_detail_top_header':{
+                    templateUrl:'report_detail_top_header.html',
+                    controller:'reportController'
+                },
+                'report_detail_top_option':{
+                    templateUrl:'report_detail_top_option.html',
+                    controller:'reportListController'
+                },
+                'report_detail_list':{
+                    templateUrl:'report_detail_list_wghDicengHuizong.html',
+                    controller:'reportWghDicengHuizongController'
+                },
+                'report_options_select':{
+                    templateUrl:'report_options.html',
+                    controller:'reportListController'
+                }
+            }
+        })
+        .state('report.detail.wghXylDiceng',{
+            url:'/list',
+            views:{
+                'report_detail_top_header':{
+                    templateUrl:'report_detail_top_header.html',
+                    controller:'reportController'
+                },
+                'report_detail_top_option':{
+                    templateUrl:'report_detail_top_option.html',
+                    controller:'reportListController'
+                },
+                'report_detail_list':{
+                    templateUrl:'report_detail_list_wghXylDiceng.html',
+                    controller:'reportWghXylDicengController'
+                },
+                'report_options_select':{
+                    templateUrl:'report_options.html',
+                    controller:'reportListController'
+                }
+            }
+        })
+        .state('report.detail.wghSwwgBusiDevelopMonth',{
+            url:'/list',
+            views:{
+                'report_detail_top_header':{
+                    templateUrl:'report_detail_top_header.html',
+                    controller:'reportController'
+                },
+                'report_detail_top_option':{
+                    templateUrl:'report_detail_top_option.html',
+                    controller:'reportListController'
+                },
+                'report_detail_list':{
+                    templateUrl:'report_detail_list_wghSwwgBusiDevelopMonth.html',
+                    controller:'reportWghSwwgBusiDevelopMonthController'
+                },
+                'report_options_select':{
+                    templateUrl:'report_options.html',
+                    controller:'reportListController'
+                }
+            }
+        })
+        .state('report.detail.wghSwwgBusiIncomeMonth',{
+            url:'/list',
+            views:{
+                'report_detail_top_header':{
+                    templateUrl:'report_detail_top_header.html',
+                    controller:'reportController'
+                },
+                'report_detail_top_option':{
+                    templateUrl:'report_detail_top_option.html',
+                    controller:'reportListController'
+                },
+                'report_detail_list':{
+                    templateUrl:'report_detail_list_wghSwwgBusiIncomeMonth.html',
+                    controller:'reportWghSwwgBusiIncomeMonthController'
                 },
                 'report_options_select':{
                     templateUrl:'report_options.html',

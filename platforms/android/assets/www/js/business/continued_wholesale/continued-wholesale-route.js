@@ -19,7 +19,7 @@ app.config(['$stateProvider',function($stateProvider){
                     templateUrl:'continued_wholesale_top.html'
                 },
                 'continued_wholesale_bottom':{
-                    template:'<div ui-view="continued_wholesale_bottom_list"></div>'
+                    template:'<div ui-view="continued_wholesale_bottom_list" class="page-slide-left-right"></div>'
                 }
             }
         })
@@ -34,6 +34,20 @@ app.config(['$stateProvider',function($stateProvider){
                 },
                 'continued_wholesale_bottom_list':{
                     templateUrl:'continued_wholesale_list_grid.html'
+                }
+            }
+        })
+        .state('continued.list.building',{
+            url:'/show',
+            views:{
+                'continued_wholesale_top_header':{
+                    templateUrl:'continued_wholesale_top_header.html'
+                },
+                'continued_wholesale_top_monthpicker':{
+                    templateUrl:'continued_wholesale_top_monthpicker.html'
+                },
+                'continued_wholesale_bottom_list':{
+                    templateUrl:'continued_wholesale_list_building.html'
                 }
             }
         })

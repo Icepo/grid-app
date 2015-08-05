@@ -16,34 +16,34 @@
     </script>
     <script type="text/ng-template" id="continued_wholesale_top_monthpicker.html">
         <div class="text-center sub_title_light">
-            <img class="sub_title_left" ng-src="img/triangle_left_active.png"><span id="datepicker_font">{{invalidDate.getFullYear()}}年{{invalidDate.getMonth()+1}}月到期</span><img class="sub_title_right" ng-src="img/triangle_right_active.png">
+            <img class="sub_title_left" ng-src="img/triangle_left_active.png" ng-click="changeDate(-1)"><span id="datepicker_font">{{invalidDate.getFullYear()}}年{{invalidDate.getMonth()+1}}月到期</span><img class="sub_title_right" ng-src="img/triangle_right_active.png" ng-click="changeDate(1)">
         </div>
     </script>
     <script type="text/ng-template" id="continued_wholesale_user_info.html">
         <div class="user_page">
-            <div class="user_page_div">客户名称：张玉娇&nbsp;&nbsp;<img id="user_page_call" ng-src="img/call_left.png"></div>
-            <div class="user_page_div">设备号：01068591234</div>
-            <div class="user_page_div">接入方式/速率：FTTH/40M</div>
-            <div class="user_page_div">主资费：宽带合约1598包一年</div>
-            <div class="user_page_div">到期：2015/3/21&nbsp;&nbsp;&nbsp;&nbsp;续趸：2015/3/21</div>
+            <div class="user_page_div">客户名称：{{currentUserInfo.custChName}}&nbsp;&nbsp;<img id="user_page_call" ng-src="img/call_left.png"></div>
+            <div class="user_page_div">设备号：{{currentUserInfo.svcNum}}</div>
+            <div class="user_page_div">接入方式/速率：{{currentUserInfo.inType}}</div>
+            <div class="user_page_div">主资费：{{currentUserInfo.mainDiscountName}}</div>
+            <div class="user_page_div">到期：{{currentUserInfo.bundleExpire.time|date:"yyyyMM"}}&nbsp;&nbsp;&nbsp;&nbsp;续趸：{{currentUserInfo.accmonth}}</div>
             <div class="row text-center user_state_row">
-                <div class="col">
+                <div class="col" ng-click="changeSts('1')">
                     <img ng-src="img/agree.png">
                     <br>
-                    <css class="mark">√</css>
-                    <css class="mark_checked">已同意&nbsp;&nbsp;&nbsp;&nbsp;</css>
+                    <css ng-if="currentUserInfo.sts=='1'" class="mark">√</css>
+                    <css ng-class="{mark_checked:currentUserInfo.sts=='1'}">已同意&nbsp;&nbsp;&nbsp;&nbsp;</css>
                 </div>
-                <div class="col">
+                <div class="col" ng-click="changeSts('0')">
                     <img ng-src="img/refuse.png">
                     <br>
-                    <css class="hide">√</css>
-                    <css>未同意&nbsp;&nbsp;&nbsp;&nbsp;</css>
+                    <css ng-if="currentUserInfo.sts=='0'"  class="mark">√</css>
+                    <css  ng-class="{mark_checked:currentUserInfo.sts=='0'}">未同意&nbsp;&nbsp;&nbsp;&nbsp;</css>
                 </div>
-                <div class="col">
+                <div class="col" ng-click="changeSts('')">
                     <img ng-src="img/consider.png">
                     <br>
-                    <css class="hide">√</css>
-                    <css>考虑中&nbsp;&nbsp;&nbsp;&nbsp;</css>
+                    <css ng-if="currentUserInfo.sts==''"  class="mark">√</css>
+                    <css  ng-class="{mark_checked:currentUserInfo.sts==''}">考虑中&nbsp;&nbsp;&nbsp;&nbsp;</css>
                 </div>
             </div>
             <input id="userinfo_input" type="text" placeholder="说点什么吧。。。">
@@ -69,101 +69,41 @@
         </div>
     </script>
     <script type="text/ng-template" id="continued_wholesale_list_grid.html">
-        <div class="continued_list">
-            <div class="list_head">花园东路四号院</div>
+        <div class="continued_list" ng-repeat="item in wanggeList" ng-click="continuedWholesaleBuilding(item.areaId)">
+            <div class="list_head">{{item.areaName}}</div>
             <div class="text-center list_middle">
-                <span><css class="font_large font_black">200</css><br><css>全部</css></span>
+                <span><css class="font_large font_black">{{item.TotalNum}}</css><br><css>全部</css></span>
                 <span class="font_large move_to_top_6">&nbsp;&nbsp;|</span>
-                <span><css class="font_large font_black">187</css><br>已续</span>
+                <span><css class="font_large font_black">{{item.FinishNum}}</css><br>已续</span>
                 <span class="font_large move_to_top_6">&nbsp;&nbsp;|</span>
-                <span><css class="font_large font_unicom">13</css><br>未续</span>
+                <span><css class="font_large font_unicom">{{item.UnFinishNum}}</css><br>未续</span>
             </div>
-            <div class="list_bottom">北京市海淀区牡丹园国安剧场南侧</div>
+            <div class="list_bottom" ng-if="item.areaAddress">{{item.areaAddress}}</div>
         </div>
-        <div class="continued_list" ng-repeat="wangge in wanggeList">
-            <div class="list_head">{{wangge.wanggeName}}</div>
+    </script>
+    <script type="text/ng-template" id="continued_wholesale_list_building.html">
+        <div class="continued_list" ng-repeat="item in buildingList">
+            <div class="list_head">{{item.areaName}}</div>
             <div class="text-center list_middle">
-                <span><css class="font_large font_black">{{wangge.TotalNum}}</css><br><css>全部</css></span>
+                <span><css class="font_large font_black" ng-click="getUserList(item.areaId,'')">{{item.TotalNum}}</css><br><css>全部</css></span>
                 <span class="font_large move_to_top_6">&nbsp;&nbsp;|</span>
-                <span><css class="font_large font_black">{{wangge.FinishNum}}</css><br>已续</span>
+                <span><css class="font_large font_black" ng-click="getUserList(item.areaId,'1')">{{item.FinishNum}}</css><br>已续</span>
                 <span class="font_large move_to_top_6">&nbsp;&nbsp;|</span>
-                <span><css class="font_large font_unicom">{{wangge.UnFinishNum}}</css><br>未续</span>
+                <span><css class="font_large font_unicom" ng-click="getUserList(item.areaId,'0')">{{item.UnFinishNum}}</css><br>未续</span>
             </div>
-            <div class="list_bottom">北京市海淀区牡丹园国安剧场南侧</div>
-        </div>
-        <div class="continued_list">
-            <div class="list_head">花园东路四号院</div>
-            <div class="text-center list_middle">
-                <span ng-click="showUser()"><css class="font_large font_black">200</css><br><css>全部</css></span>
-                <span class="font_large move_to_top_6">&nbsp;&nbsp;|</span>
-                <span><css class="font_large font_black">187</css><br>已续</span>
-                <span class="font_large move_to_top_6">&nbsp;&nbsp;|</span>
-                <span><css class="font_large font_unicom">13</css><br>未续</span>
-            </div>
-            <div class="list_bottom">北京市海淀区牡丹园国安剧场南侧</div>
-        </div>
-        <div class="continued_list">
-            <div class="list_head">花园东路四号院</div>
-            <div class="text-center list_middle">
-                <span><css class="font_large font_black">200</css><br><css>全部</css></span>
-                <span class="font_large move_to_top_6">&nbsp;&nbsp;|</span>
-                <span><css class="font_large font_black">187</css><br>已续</span>
-                <span class="font_large move_to_top_6">&nbsp;&nbsp;|</span>
-                <span><css class="font_large font_unicom">13</css><br>未续</span>
-            </div>
-            <div class="list_bottom">北京市海淀区牡丹园国安剧场南侧</div>
-        </div>
-        <div class="continued_list">
-            <div class="list_head">花园东路四号院</div>
-            <div class="text-center list_middle">
-                <span><css class="font_large font_black">200</css><br><css>全部</css></span>
-                <span class="font_large move_to_top_6">&nbsp;&nbsp;|</span>
-                <span><css class="font_large font_black">187</css><br>已续</span>
-                <span class="font_large move_to_top_6">&nbsp;&nbsp;|</span>
-                <span><css class="font_large font_unicom">13</css><br>未续</span>
-            </div>
-            <div class="list_bottom">北京市海淀区牡丹园国安剧场南侧</div>
+            <div class="list_bottom" ng-if="item.areaAddress">{{item.areaAddress}}</div>
         </div>
     </script>
     <script type="text/ng-template" id="continued_wholesale_list_user.html">
-        <div class="user_block" ng-click="showUserInfo()">
-            <img class="state_img" ng-src="img/continued.png">
+        <div class="user_block" ng-repeat="item in userList" ng-click="showUserInfo($event,$index)">
+            <img ng-if="item.isContinued=='1'" class="state_img" ng-src="img/continued.png">
+            <img ng-if="item.isContinued=='0'" class="state_img" ng-src="img/no_continued.png">
             <div class="user_info">
-                <span class="user_name">张玉娇&nbsp;<img src="img/call_left.png"></span>
-                <span class="user_state">[不同意&nbsp;&nbsp;3天前]</span>
+                <span class="user_name">{{item.custChName}}&nbsp;<a href="tel:{{item.contactPhone}}"><img ng-src="img/call_left.png" tel=""></a></span>
+                <span class="user_state" ng-if="item.dateNum">[<css ng-if="item.sts=='1'">不</css>同意&nbsp;&nbsp;{{item.dateNum}}天前]</span>
             </div>
-            <div class="user_product">宽带合约598包一年</div>
-            <div class="user_address">北京市海淀区花园北路48号天泽大厦A座1503室</div>
-            <div class="hr_div"></div>
-        </div>
-        <div class="user_block">
-            <img class="state_img" ng-src="img/continued.png">
-            <div class="user_info">
-                <span class="user_name">张玉娇&nbsp;<img src="img/call_left.png"></span>
-                <span class="user_state">[不同意&nbsp;&nbsp;3天前]</span>
-            </div>
-            <div class="user_product">宽带合约598包一年</div>
-            <div class="user_address">北京市海淀区花园北路48号天泽大厦A座1503室</div>
-            <div class="hr_div"></div>
-        </div>
-        <div class="user_block">
-            <img class="state_img" ng-src="img/continued.png">
-            <div class="user_info">
-                <span class="user_name">张玉娇&nbsp;<img src="img/call_left.png"></span>
-                <span class="user_state">[不同意&nbsp;&nbsp;3天前]</span>
-            </div>
-            <div class="user_product">宽带合约598包一年</div>
-            <div class="user_address">北京市海淀区花园北路48号天泽大厦A座1503室</div>
-            <div class="hr_div"></div>
-        </div>
-        <div class="user_block">
-            <img class="state_img" ng-src="img/continued.png">
-            <div class="user_info">
-                <span class="user_name">张玉娇&nbsp;<img src="img/call_left.png"></span>
-                <span class="user_state">[不同意&nbsp;&nbsp;3天前]</span>
-            </div>
-            <div class="user_product">宽带合约598包一年</div>
-            <div class="user_address">北京市海淀区花园北路48号天泽大厦A座1503室</div>
+            <div class="user_product">{{item.mainDiscountName}}</div>
+            <div class="user_address">{{item.installAddress}}</div>
             <div class="hr_div"></div>
         </div>
     </script>

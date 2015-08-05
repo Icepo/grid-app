@@ -29,38 +29,292 @@
             </span>
         </div>
     </script>
-    <script type="text/ng-template" id="report_detail_list_gridJifenDay.html">
-        <table class="text-center" id="report_table">
-            <tbody id="report_tbody">
-            <tr id="report_table_title" class="border_bottom">
+    <script type="text/ng-template" id="report_detail_list_keyIndexRanking.html">
+        <table class="text-center report_table" id="report_table_keyIndexRanking">
+            <thead>
+            <tr class="border_bottom report_table_title">
                 <td ng-repeat="title in report_titles">&nbsp;{{title}}&nbsp;</td>
             </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in reportItems">
+                <td>{{item.areaName}}</td>
+                <td>{{item.indexValue}}</td>
+                <td>{{item.rankValue}}</td>
+            </tr>
+            </tbody>
+        </table>
+        <div id="mask" ng-show="optionShow" ng-click="changeDisplay()"></div>
+    </script>
+    <script type="text/ng-template" id="report_detail_list_gridJifenDay.html">
+        <table class="text-center report_table" id="report_table_gridJifenDay">
+            <thead>
+            <tr class="border_bottom report_table_title">
+                <td ng-repeat="title in report_titles">&nbsp;{{title}}&nbsp;</td>
+            </tr>
+            </thead>
+            <tbody>
             <tr ng-repeat="item in reportItems">
                 <td>{{item.dutyName}}</td>
                 <td>{{item.fenjuName}}</td>
-                <td>{{items.qujuName}}<td>
-                <td>{{items.totalScore}}<td>
-                <td>{{items.totalScoreRank}}<td>
-                <td>{{items.fjsCurAccDev}}<td>
-                <td>{{items.fjsCurAccDevScore}}<td>
-                <td>{{items.djnDaoqi}}<td>
-                <td>{{items.djlDaoqi}}<td>
-                <td>{{items.djnXuyue}}<td>
-                <td>{{items.djlXuyue}}<td>
-                <td>{{items.djnLastXuye}}<td>
-                <td>{{items.djnLastWx}}<td>
-                <td>{{items.djJdXuyueRateAve}}<td>
-                <td>{{items.djCurXuyueRate}}<td>
-                <td>{{items.djCurXuyueRateScore}}<td>
-                <td>{{items.curXuyueScoreTsAdd}}<td>
-                <td>{{items.dghfzCurAccDev}}<td>
-                <td>{{items.dghfzCurAccDevScore}}<td>
-                <td>{{items.byzhyCurAccDev}}<td>
-                <td>{{items.byzhyCurAccDevScore}}<td>
-                <td>{{items.chyAccDev}}<td>
-                <td>{{items.byzhyCurAccDevAddScore}}<td>
-                <td>{{items.kdzzfzCurAccDev}}<td>
-                <td>{{items.kdzzfzCurAccDevScore}}<td>
+                <td>{{item.qujuName}}</td>
+                <td>{{item.totalScore}}</td>
+                <td>{{item.totalScoreRank}}</td>
+                <td>{{item.fjsCurAccDev}}</td>
+                <td>{{item.fjsCurAccDevScore}}</td>
+                <td>{{item.djnDaoqi}}</td>
+                <td>{{item.djlDaoqi}}</td>
+                <td>{{item.djnXuyue}}</td>
+                <td>{{item.djlXuyue}}</td>
+                <td>{{item.djnLastXuye}}</td>
+                <td>{{item.djnLastWx}}</td>
+                <td>{{item.djJdXuyueRateAve}}</td>
+                <td>{{item.djCurXuyueRate}}</td>
+                <td>{{item.djCurXuyueRateScore}}</td>
+                <td>{{item.curXuyueScoreTsAdd}}</td>
+                <td>{{item.dghfzCurAccDev}}</td>
+                <td>{{item.dghfzCurAccDevScore}}</td>
+                <td>{{item.byzhyCurAccDev}}</td>
+                <td>{{item.byzhyCurAccDevScore}}</td>
+                <td>{{item.chyAccDev}}</td>
+                <td>{{item.byzhyCurAccDevAddScore}}</td>
+                <td>{{item.kdzzfzCurAccDev}}</td>
+                <td>{{item.kdzzfzCurAccDevScore}}</td>
+            </tr>
+            </tbody>
+        </table>
+        <div id="mask" ng-show="optionShow" ng-click="changeDisplay()"></div>
+    </script>
+    <script type="text/ng-template" id="report_detail_top_header_swwgBusinessDevelopDay.html">
+        <div class="sub_title border_bottom text-center">
+            <img class="img_left" ng-src="img/title_left.png" ng-click="back()">
+            <span id="title_font">{{reportTitle}}</span>
+            <img class="img_right" ng-src="img/search.png" ng-click="queryReport()">
+        </div>
+    </script>
+    <script type="text/ng-template" id="report_detail_top_option_swwgBusinessDevelopDay.html">
+        <div class="text-center border_bottom report_options">
+            <span class="report_option text-center" ng-click="changeDisplay(currentAreaId,'report_option_col_1',true)">
+                {{currentAreaName}}&nbsp;<img ng-src="img/triangle_down.png">
+            </span>
+
+            <span class="report_option text-center">
+                {{currentDateStr}}&nbsp;<img ng-src="img/triangle_down.png">
+            </span>
+
+            <span class="report_option text-center">
+                <select id="swwgBusinessDevelopDay-select-busiType">
+                    <option>业务类型</option>
+                    <option value="1">固话</option>
+                    <option value="2">宽带</option>
+                    <option value="3">沃商务</option>
+                </select>
+            </span>
+            <span class="report_option text-center">
+                <select id="swwgBusinessDevelopDay-select-statType">
+                    <option>统计类型</option>
+                    <option value="1">到达量</option>
+                    <option value="2">发展量</option>
+                    <option value="3">离网量</option>
+                </select>
+            </span>
+        </div>
+    </script>
+    <script type="text/ng-template" id="report_detail_list_swwgBusinessDevelopDay.html">
+        <table class="text-center report_table" id="report_table_swwgBusinessDevelopDay">
+            <thead>
+            <tr class="border_bottom report_table_title">
+                <td ng-repeat="title in report_titles">&nbsp;{{title}}&nbsp;</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in reportItems">
+                <td>{{item.areaId}}</td>
+                <td>{{item.areaName}}</td>
+                <td>{{item.levelStat}}</td>
+                <td>{{item.parentId}}</td>
+                <td>{{item.preMonth}}</td>
+                <td>{{item.day1}}</td>
+                <td>{{item.day2}}</td>
+                <td>{{item.day3}}</td>
+                <td>{{item.day4}}</td>
+                <td>{{item.day5}}</td>
+                <td>{{item.day6}}</td>
+                <td>{{item.day7}}</td>
+                <td>{{item.day8}}</td>
+                <td>{{item.day9}}</td>
+                <td>{{item.day10}}</td>
+                <td>{{item.day11}}</td>
+                <td>{{item.day12}}</td>
+                <td>{{item.day13}}</td>
+                <td>{{item.day14}}</td>
+                <td>{{item.day15}}</td>
+                <td>{{item.day16}}</td>
+                <td>{{item.day17}}</td>
+                <td>{{item.day18}}</td>
+                <td>{{item.day19}}</td>
+                <td>{{item.day20}}</td>
+                <td>{{item.day21}}</td>
+                <td>{{item.day22}}</td>
+                <td>{{item.day23}}</td>
+                <td>{{item.day24}}</td>
+                <td>{{item.day25}}</td>
+                <td>{{item.day26}}</td>
+                <td>{{item.day27}}</td>
+                <td>{{item.day28}}</td>
+                <td>{{item.day29}}</td>
+                <td>{{item.day30}}</td>
+                <td>{{item.day31}}</td>
+                <td>{{item.thisMonth}}</td>
+            </tr>
+            </tbody>
+        </table>
+        <div id="mask" ng-show="optionShow" ng-click="changeDisplay()"></div>
+    </script>
+    <script type="text/ng-template" id="report_detail_list_wgjfAdslHuizongNNew3.html">
+        <table class="text-center report_table" >
+            <thead>
+            <tr class="border_bottom report_table_title">
+                <td ng-repeat="title in report_titles">&nbsp;{{title}}&nbsp;</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in reportItems">
+                <td>{{item.dutyName}}</td>
+                <td>{{item.fenjuName}}</td>
+                <td>{{item.qujuName}}</td>
+                <td>{{item.totalScore}}</td>
+                <td>{{item.totalScoreRank}}</td>
+                <td>{{item.fjsCurAccDev}}</td>
+                <td>{{item.fjsCurAccDevScore}}</td>
+                <td>{{item.djnDaoqi}}</td>
+                <td>{{item.djlDaoqi}}</td>
+                <td>{{item.djnXuyue}}</td>
+                <td>{{item.djlXuyue}}</td>
+                <td>{{item.djnLastXuye}}</td>
+                <td>{{item.djnLastWx}}</td>
+                <td>{{item.djJdXuyueRateAve}}</td>
+                <td>{{item.djCurXuyueRate}}</td>
+                <td>{{item.djCurXuyueRateScore}}</td>
+                <td>{{item.curXuyueScoreTsAdd}}</td>
+                <td>{{item.dghfzCurAccDev}}</td>
+                <td>{{item.dghfzCurAccDevScore}}</td>
+                <td>{{item.byzhyCurAccDev}}</td>
+                <td>{{item.byzhyCurAccDevScore}}</td>
+                <td>{{item.chyAccDev}}</td>
+                <td>{{item.byzhyCurAccDevAddScore}}</td>
+                <td>{{item.kdzzfzCurAccDev}}</td>
+                <td>{{item.kdzzfzCurAccDevScore}}</td>
+            </tr>
+            </tbody>
+        </table>
+        <div id="mask" ng-show="optionShow" ng-click="changeDisplay()"></div>
+    </script>
+
+    <script type="text/ng-template" id="report_detail_list_wghDicengHuizong.html">
+        <table class="text-center report_table" >
+            <thead>
+            <tr class="border_bottom report_table_title">
+                <td ng-repeat="title in report_titles">&nbsp;{{title}}&nbsp;</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in reportItems">
+                <td>{{item.channelName}}</td>
+                <td>{{item.channelId}}</td>
+                <td>{{item.bureauName}}</td>
+                <td>{{item.deptName}}</td>
+                <td>{{item.chyCount}}</td>
+                <td>{{item.chyYj}}</td>
+                <td>{{item.iptvCount}}</td>
+                <td>{{item.iptvYj}}</td>
+                <td>{{item.dghCount}}</td>
+                <td>{{item.dghYj}}</td>
+                <td>{{item.huizongYj}}</td>
+
+            </tr>
+            </tbody>
+        </table>
+        <div id="mask" ng-show="optionShow" ng-click="changeDisplay()"></div>
+    </script>
+    <script type="text/ng-template" id="report_detail_list_wghXylDiceng.html">
+        <table class="text-center report_table" >
+            <thead>
+            <tr class="border_bottom report_table_title">
+                <td ng-repeat="title in report_titles">&nbsp;{{title}}&nbsp;</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in reportItems">
+                <td>{{item.dutyName}}</td>
+                <td>{{item.fenjuName}}</td>
+                <td>{{item.qujuName}}</td>
+                <td>{{item.jishu}}</td>
+                <td>{{item.xuyuelv}}</td>
+                <td>{{item.dengji}}</td>
+                <td>{{item.yongjinedu}}</td>
+
+            </tr>
+            </tbody>
+        </table>
+        <div id="mask" ng-show="optionShow" ng-click="changeDisplay()"></div>
+    </script>
+
+    <script type="text/ng-template" id="report_detail_list_wghSwwgBusiDevelopMonth.html">
+        <table class="text-center report_table" >
+            <thead>
+            <tr class="border_bottom report_table_title">
+                <td ng-repeat="title in report_titles">&nbsp;{{title}}&nbsp;</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in reportItems">
+                <td>{{item.areaId}}</td>
+                <td>{{item.areaName}}</td>
+                <td>{{item.levelStat}}</td>
+                <td>{{item.parentId}}</td>
+                <td>{{item.ghFz}}</td>
+                <td>{{item.ghLw}}</td>
+                <td>{{item.ghDd}}</td>
+                <td>{{item.kdFz}}</td>
+                <td>{{item.kdLw}}</td>
+                <td>{{item.kdDd}}</td>
+                <td>{{item.wswFz}}</td>
+                <td>{{item.wswLw}}</td>
+                <td>{{item.wswDd}}</td>
+                <td>{{item.hlwzxFz}}</td>
+                <td>{{item.hlwzxLw}}</td>
+                <td>{{item.hlwzxDd}}</td>
+                <td>{{item.wyFz}}</td>
+                <td>{{item.wyLw}}</td>
+                <td>{{item.wyDd}}</td>
+            </tr>
+            </tbody>
+        </table>
+        <div id="mask" ng-show="optionShow" ng-click="changeDisplay()"></div>
+    </script>
+
+    <script type="text/ng-template" id="report_detail_list_wghSwwgBusiIncomeMonth.html">
+        <table class="text-center report_table" >
+            <thead>
+            <tr class="border_bottom report_table_title">
+                <td ng-repeat="title in report_titles">&nbsp;{{title}}&nbsp;</td>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in reportItems">
+                <td>{{item.areaId}}</td>
+                <td>{{item.areaName}}</td>
+                <td>{{item.levelStat}}</td>
+                <td>{{item.parentId}}</td>
+                <td>{{item.ghIncome}}</td>
+                <td>{{item.kdIncome}}</td>
+                <td>{{item.wswIncome}}</td>
+                <td>{{item.hlwzxIncome}}</td>
+                <td>{{item.wyIncome}}</td>
+                <td>{{item.qtIncome}}</td>
+                <td>{{item.incomeTotal}}</td>
+
             </tr>
             </tbody>
         </table>
